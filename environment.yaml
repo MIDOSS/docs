@@ -1,0 +1,29 @@
+# conda environment description file for MIDOSS docs
+# development environment
+#
+# Create a conda environment in which the MIDOSS docs can be build
+# with:
+#
+#   $ cd MIDOSS/docs
+#   $ conda env create -f environment.yaml
+#   $ source activate moad-docs
+#
+# The environment will include all of the packages necessary to build
+# the docs locally so that you can preview them before you push to
+# Bitbucket and wait for readthedocs to build them.
+#
+# See the requirements.txt file for an exhaustive list of all of the
+# packages installed in the environment and their versions used in
+# recent development.
+
+name: midoss-docs
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - pip
+  - python=3
+  - sphinx
+  - sphinx_rtd_theme
