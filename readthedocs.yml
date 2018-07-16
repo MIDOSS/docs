@@ -1,0 +1,11 @@
+# Configuration for builds on readthedocs.org
+
+formats:
+  # Only build HTML and JSON
+  - none
+
+build:
+  image: latest
+
+python:
+  version: 3.6
