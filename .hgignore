@@ -1,0 +1,9 @@
+syntax: glob
+*~
+.cache
+.hghooks
+.ipynb_checkpoints
+_build/*
+
+syntax: regexp
+(.*/)?\#[^/]*\#$
