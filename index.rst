@@ -19,6 +19,7 @@ This is documentation about the MEOPAR MIDOSS
    :maxdepth: 2
    :caption: Contents:
 
+   contributing
    CONTRIBUTORS
 
 .. include:: license_description.txt
