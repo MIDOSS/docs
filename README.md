@@ -19,6 +19,8 @@ These docs are rendered at [https://midoss-docs.readthedocs.io/en/latest/](https
 License
 -------
 
+[![Licensed under a Creative Commons Attribution 4.0 International License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
+
 The MEOPAR MIDOSS Project Documentation is copyright 2018 by the
 [MIDOSS project contributors](https://bitbucket.org/midoss/docs/src/tip/CONTRIBUTORS.rst),
 the University of British Columbia,
