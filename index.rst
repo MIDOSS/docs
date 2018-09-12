@@ -19,6 +19,7 @@ This is documentation about the MEOPAR MIDOSS
    :maxdepth: 2
    :caption: Contents:
 
+   python_code/index
    contributing
    CONTRIBUTORS
 
