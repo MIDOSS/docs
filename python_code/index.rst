@@ -15,9 +15,8 @@ Python Code Development and Maintenance
 This section is a collection of notes about writing and maintain Python code in the MIDOSS project.
 
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
+   :caption: Contents:
 
    library_code
