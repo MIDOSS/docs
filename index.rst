@@ -92,8 +92,10 @@ Funding Organizations
    :maxdepth: 2
    :caption: Contents:
 
+   models/index
    python_code/index
    contributing
    CONTRIBUTORS
+
 
 .. include:: license_description.txt
