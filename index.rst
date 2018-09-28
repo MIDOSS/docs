@@ -81,6 +81,13 @@ Local Stakeholders
 * oil spill cleanup companies
 
 
+Federal Stakeholders/Collaborators
+==================================
+
+* Environment and Climate Change : ocean modelling and oil spill modelling
+* Fisheries and Oceans, Canada: ocean modelling, Canadian Hydrographic Service and Center for Offshore Oil, Gas and Energy Research 
+
+
 Funding Organizations
 =====================
 
