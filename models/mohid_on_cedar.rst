@@ -66,6 +66,16 @@ Create a :file:`MIDOSS/` directory tree in your project space:
 
     mkdir -p $PROJECT/$USER/MIDOSS/results
 
+.. note::
+    If the above command fails,
+    it may be because the symbolic link that :envvar:`PROJECT` points to was not created when your :kbd:`cedar` account was set up.
+    Try:
+
+    .. code-block:: bash
+
+        cd $HOME
+        ln -s $HOME/projects/def-allen project
+
 Clone the MOHID code repo:
 
 .. code-block:: bash
