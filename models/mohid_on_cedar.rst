@@ -135,6 +135,15 @@ i.e. it won't be able to include any products from previous builds.
 
     .. _MOHID repo: https://github.com/Mohid-Water-Modelling-System/Mohid
 
+Compilation can up (≥15%) faster in an `interactive job`_ on :kbd:`cedar`.
+Be sure to request at least 1024 MB of memory:
+
+.. _interactive job: https://docs.computecanada.ca/wiki/Running_jobs#Interactive_jobs
+
+.. code-block:: bash
+
+    salloc --time=0:10:0 --cpus-per-task=1 --mem-per-cpu=1024m --account=rrg-allen
+
 
 Test MOHID
 ----------
