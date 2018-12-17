@@ -31,8 +31,15 @@ The :command:`module load` commands needed are:
 .. code-block:: bash
 
     module load python/3.7.0
-    module load netcdf-fortran-mpi/4.4.4
+    module load netcdf-fortran/4.4.4
+    module load nco/4.6.6
     module load proj4-fortran/1.0
+
+.. warning::
+    The :kbd:`nco/4.6.6` module is incompatible with the :kbd:`module load netcdf-fortran-mpi/4.4.4` module that is required to run NEMO.
+    So,
+    if you are running both MIDOSS-MOHID and NEMO,
+    you will need to manually load the appropriate modules as necessary.
 
 
 Create a Workspace and Clone the Tools and Code Repositories
