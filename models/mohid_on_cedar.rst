@@ -8,27 +8,25 @@
 
 .. _MOHID-OnCedar:
 
-*********************
-MOHID on :kbd:`cedar`
-*********************
+****************************
+MIDOSS MOHID on :kbd:`cedar`
+****************************
 
-This section describes the steps to set up and run the SalishSeaCast `MOHID`_ version 18.06+ code on the ComputeCanada machines `graham.computecanada.ca`_ and `cedar.computecanada.ca`_.
+This section describes the steps to set up and run the MIDOSS version of the `MOHID`_ code on the ComputeCanada `cedar.computecanada.ca`_ HPC cluster.
 
 .. _MOHID: http://www.mohid.com/
-.. _graham.computecanada.ca: https://docs.computecanada.ca/wiki/Graham
 .. _cedar.computecanada.ca: https://docs.computecanada.ca/wiki/Cedar
 
 
 Modules setup
 =============
 
-When working on the ComputeCanada clusters, the :command:`module load` command must be used to load extra software components.
+When working on :kbd:`cedar`, the :command:`module load` command must be used to load extra software components.
 
 You can manually load the modules each time you log in,
 or you can add the lines to your :file:`$HOME/.bashrc` file so that they are automatically loaded upon login.
 
-At present, :kbd:`cedar` and :kbd:`graham` are configured similarly.
-The modules needed are:
+The :command:`module load` commands needed are:
 
 .. code-block:: bash
 
@@ -37,10 +35,10 @@ The modules needed are:
     module load proj4-fortran/1.0
 
 
-Create a Workspace and Clone the MOHID Code Repository
-======================================================
+Create a Workspace and Clone the Tools and Code Repositories
+============================================================
 
-:kbd:`cedar` and :kbd:`graham` provide `several different types of file storage`_.
+:kbd:`cedar` provides`several different types of file storage`_.
 We use project space for our working environments because it is large,
 high performance,
 and backed up.
@@ -49,16 +47,14 @@ also high performance,
 but not backed up,
 so we use that as the space to execute MOHID runs in,
 but generally move the run results to project space.
+Files more than 60 days old are automatically purged from scratch space on :kbd:`cedar`.
 
-Both systems provide environment variables that are more convenient that remembering full paths to access your project and scratch spaces:
+.. _several different types of file storage: https://docs.computecanada.ca/wiki/Storage_and_file_management
+
+:kbd:`cedar` automatically provides environment variables that are more convenient that remembering full paths to access your project and scratch spaces:
 
 * Your project space is at :file:`$PROJECT/$USER/`
 * Your scratch space is at :file:`$SCRATCH/`
-* Daily atmospheric,
-  river,
-  and boundary forcing files are in the :file:`$PROJECT/SalishSea/forcing/` tree
-
-.. _several different types of file storage: https://docs.computecanada.ca/wiki/Storage_and_file_management
 
 Create a :file:`MIDOSS/` directory tree in your project space:
 
@@ -76,12 +72,104 @@ Create a :file:`MIDOSS/` directory tree in your project space:
         cd $HOME
         ln -s $HOME/projects/def-allen project
 
-Clone the MOHID code repo:
+Clone the following repositories:
+
+* `moad_tools`_ that provides the :command:`hdf5-to-netcdf4` tool for by `MOHID-Cmd`_
+  (or at the command-line, if necessary)
+* `MOHID-Cmd`_,
+  the MIDOSS-MOHID command processor for setting up and managing `MIDOSS-MOHID` _code runs
+* `MIDOSS-MOHID`_,
+  the MIDOSS project version of `MOHID`_ that includes developed at Dalhousie University
+
+.. _moad_tools: https://bitbucket.org/UBC_MOAD/moad_tools/
+.. _MOHID-Cmd: https://bitbucket.org/midoss/mohid-cmd/
+.. _MIDOSS-MOHID : https://bitbucket.org/midoss/midoss-mohid/
 
 .. code-block:: bash
 
     cd $PROJECT/$USER/MIDOSS
-    git clone https://github.com/Mohid-Water-Modelling-System/Mohid.git MOHID
+    hg clone ssh://hg@bitbucket.org/UBC_MOAD/moad_tools
+    hg clone ssh://hg@bitbucket.org/midoss/mohid-cmd MOHID-Cmd
+    hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid MIDOSS-MOHID
+
+or
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/MIDOSS
+    hg clone https://your_userid@bitbucket.org/UBC_MOAD/moad_tools
+    hg clone https://your_userid@bitbucket.org/midoss/mohid-cmd MOHID-Cmd
+    hg clone https://your_userid@bitbucket.org/midoss/midoss-mohid MIDOSS-MOHID
+
+if you don't have `ssh key authentication`_ set up on Bitbucket
+(replace :kbd:`you_userid` with you Bitbucket userid,
+or copy the link from the :guilabel:`Clone` action pop-up on the repository`page).
+
+.. _ssh key authentication: https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html
+
+
+Install :kbd:`moad_tools` and :kbd:`MOHID-Cmd`
+----------------------------------------------
+
+.. note::
+    This method of installing the :kbd:`moad_tools` and :kbd:`MOHID-Cmd` Python packages employs the `"user scheme" for installation`_.
+    It is appropriate and necessary on :kbd:`cedar` where we *do not* have our own `Anaconda Python`_ distribution installed.
+    This method *should not* be used EOAS work stations or other machines where you have `Anaconda Python`_ installed.
+
+    .. _"user scheme" for installation: https://packaging.python.org/tutorials/installing-packages/#installing-to-the-user-site
+    .. _Anaconda Python: https://www.anaconda.com/what-is-anaconda/
+
+.. code-block:: bash
+
+    cd $PROJECT/$USER/MIDOSS
+    pip install --user moad_tools
+    pip install --user MOHID-Cmd
+
+You can confirm that :kbd:`moad_tools` and :command:`hdf5-to-netcdf4` are correctly installed with the command:
+
+.. code-block:: bash
+
+    hdf5-to-netcdf4 --help
+
+from which you should see output like::
+
+  Usage: hdf5-to-netcdf4 [OPTIONS] HDF5_FILE NETCDF4_FILE
+
+    Transform selected contents of a MOHID HDF5 results file HDF5_FILE into a
+    netCDF4 file stored as NETCDF4_FILE.
+
+  Options:
+    -v, --verbosity [debug|info|warning|error|critical]
+                                    Choose how much information you want to see
+                                    about the progress of the transformation;
+                                    warning, error, and critical should be
+                                    silent unless something bad goes wrong.
+                                    [default: warning]
+    --help                          Show this message and exit.
+
+You can confirm that :kbd:`MOHID-Cmd` is correctly installed with the command:
+
+.. code-block:: bash
+
+    mohid --help
+
+from which you should see output like::
+  usage: mohid [--version] [-v | -q] [--log-file LOG_FILE] [-h] [--debug]
+
+  MIDOSS-MOHID Command Processor
+
+  optional arguments:
+    --version            show program's version number and exit
+    -v, --verbose        Increase verbosity of output. Can be repeated.
+    -q, --quiet          Suppress output except warnings and errors.
+    --log-file LOG_FILE  Specify a file to log output. Disabled by default.
+    -h, --help           Show help message and exit.
+    --debug              Show tracebacks on errors.
+
+  Commands:
+    complete       print bash completion command (cliff)
+    help           print detailed help for another command (cliff)
+    prepare        Set up the MIDOSS-MOHID run described in DESC_FILE and print the path of the temporary run directory.
 
 
 Compile MOHID
