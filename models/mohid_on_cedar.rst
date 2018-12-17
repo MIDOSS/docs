@@ -30,10 +30,10 @@ The :command:`module load` commands needed are:
 
 .. code-block:: bash
 
-    module load python/3.7.0
-    module load netcdf-fortran/4.4.4
     module load nco/4.6.6
+    module load netcdf-fortran/4.4.4
     module load proj4-fortran/1.0
+    module load python/3.7.0
 
 .. warning::
     The :kbd:`nco/4.6.6` module is incompatible with the :kbd:`module load netcdf-fortran-mpi/4.4.4` module that is required to run NEMO.
@@ -161,6 +161,7 @@ You can confirm that :kbd:`MOHID-Cmd` is correctly installed with the command:
     mohid --help
 
 from which you should see output like::
+
   usage: mohid [--version] [-v | -q] [--log-file LOG_FILE] [-h] [--debug]
 
   MIDOSS-MOHID Command Processor
@@ -177,6 +178,49 @@ from which you should see output like::
     complete       print bash completion command (cliff)
     help           print detailed help for another command (cliff)
     prepare        Set up the MIDOSS-MOHID run described in DESC_FILE and print the path of the temporary run directory.
+
+
+Using :command:`hdf5-to-netcdf4`
+--------------------------------
+
+.. note::
+    `MOHID-Cmd`_ is not yet fully functional.
+    In particular,
+    it does not yet include the ability to transform MOHID HDF5 output files into netCDF4 files.
+    For now you have to do that using the :command:`hdf5-to-netcdf4` command-line tool.
+
+The :command:`hdf5-to-netcdf4` command-line tool can be used to transform a MOHID HDF5 output file into a netCDF4 file.
+Doing so is resource intensive in terms of memory and disk i/o,
+so it has to be done in an `interactive slurm session`_ on :kbd:`cedar`.
+
+.. _interactive slurm session: https://docs.computecanada.ca/wiki/Running_jobs#Interactive_jobs
+
+Start an interactive :kbd:`slurm` session with a command like:
+
+.. code-block:: bash
+
+    salloc --time=00:10:0 --cpus-per-task=1 --mem-per-cpu=20000m --account=rrg-allen
+
+Choose the :kbd:`--time` value to be close to what you expect to need in order to avoid having to wait too long for the session to be allocated to you.
+For guidance,
+transformation of a :file:`Lagrangian.hdf5` from a MOHID run for 7 days of model time on the SalishSeaCast domain takes about 6m30s.
+
+.. note::
+    At present,
+    running :command:`hdf5-to-netcdf4` on cedar requires a crazy large memory allocation,
+    nearly 20,000 Mb.
+    It is hoped that will change in the future.
+
+One the interactive session starts,
+do the transformation with:
+
+.. code-block:: bash
+
+    hdf5-to-netcdf4 Lagrangian.hdf5 Lagrangian.nc
+
+You can prefix the hdf5 and nc file names with paths.
+You can get progress information from :command:`hdf5-to-netcdf4` by using the options :kbd:`--verbosity info` or :kbd:`--verbosity debug`.
+Please see :command:`hdf5-to-netcdf4 --help` for details.
 
 
 Compile MOHID
