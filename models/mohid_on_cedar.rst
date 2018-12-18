@@ -67,7 +67,7 @@ Create a :file:`MIDOSS/` directory tree in your project space:
 
 .. code-block:: bash
 
-    mkdir -p $PROJECT/$USER/MIDOSS/results
+    $ mkdir -p $PROJECT/$USER/MIDOSS/results
 
 .. note::
     If the above command fails,
@@ -76,8 +76,8 @@ Create a :file:`MIDOSS/` directory tree in your project space:
 
     .. code-block:: bash
 
-        cd $HOME
-        ln -s $HOME/projects/def-allen project
+        $ cd $HOME
+        $ ln -s $HOME/projects/def-allen project
 
 Clone the following repositories:
 
@@ -94,25 +94,10 @@ Clone the following repositories:
 
 .. code-block:: bash
 
-    cd $PROJECT/$USER/MIDOSS
-    hg clone ssh://hg@bitbucket.org/UBC_MOAD/moad_tools
-    hg clone ssh://hg@bitbucket.org/midoss/mohid-cmd MOHID-Cmd
-    hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid MIDOSS-MOHID
-
-or
-
-.. code-block:: bash
-
-    cd $PROJECT/$USER/MIDOSS
-    hg clone https://your_userid@bitbucket.org/UBC_MOAD/moad_tools
-    hg clone https://your_userid@bitbucket.org/midoss/mohid-cmd MOHID-Cmd
-    hg clone https://your_userid@bitbucket.org/midoss/midoss-mohid MIDOSS-MOHID
-
-if you don't have `ssh key authentication`_ set up on Bitbucket
-(replace :kbd:`you_userid` with you Bitbucket userid,
-or copy the link from the :guilabel:`Clone` action pop-up on the repository`page).
-
-.. _ssh key authentication: https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html
+    $ cd $PROJECT/$USER/MIDOSS
+    $ hg clone ssh://hg@bitbucket.org/UBC_MOAD/moad_tools
+    $ hg clone ssh://hg@bitbucket.org/midoss/mohid-cmd MOHID-Cmd
+    $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid MIDOSS-MOHID
 
 
 Install :kbd:`moad_tools` and :kbd:`MOHID-Cmd`
@@ -128,15 +113,15 @@ Install :kbd:`moad_tools` and :kbd:`MOHID-Cmd`
 
 .. code-block:: bash
 
-    cd $PROJECT/$USER/MIDOSS
-    pip install --user moad_tools
-    pip install --user MOHID-Cmd
+    $ cd $PROJECT/$USER/MIDOSS
+    $ pip install --user moad_tools
+    $ pip install --user MOHID-Cmd
 
 You can confirm that :kbd:`moad_tools` and :command:`hdf5-to-netcdf4` are correctly installed with the command:
 
 .. code-block:: bash
 
-    hdf5-to-netcdf4 --help
+    $ hdf5-to-netcdf4 --help
 
 from which you should see output like::
 
@@ -158,7 +143,7 @@ You can confirm that :kbd:`MOHID-Cmd` is correctly installed with the command:
 
 .. code-block:: bash
 
-    mohid --help
+    $ mohid --help
 
 from which you should see output like::
 
@@ -199,7 +184,7 @@ Start an interactive :kbd:`slurm` session with a command like:
 
 .. code-block:: bash
 
-    salloc --time=00:10:0 --cpus-per-task=1 --mem-per-cpu=20000m --account=rrg-allen
+    $ salloc --time=00:10:0 --cpus-per-task=1 --mem-per-cpu=20000m --account=rrg-allen
 
 Choose the :kbd:`--time` value to be close to what you expect to need in order to avoid having to wait too long for the session to be allocated to you.
 For guidance,
@@ -216,7 +201,7 @@ do the transformation with:
 
 .. code-block:: bash
 
-    hdf5-to-netcdf4 Lagrangian.hdf5 Lagrangian.nc
+    $ hdf5-to-netcdf4 Lagrangian.hdf5 Lagrangian.nc
 
 You can prefix the hdf5 and nc file names with paths.
 You can get progress information from :command:`hdf5-to-netcdf4` by using the options :kbd:`--verbosity info` or :kbd:`--verbosity debug`.
@@ -235,9 +220,15 @@ and `MohidWater`_ parts of the `MOHID Framework`_ with the commands:
 .. _MohidWater: http://wiki.mohid.com/index.php?title=Mohid_Water
 .. _MOHID Framework: http://wiki.mohid.com/index.php?title=Mohid_Framework
 
+Use an `interactive job`_ on :kbd:`cedar` for compilation because it is substantially faster (≥15%).
+Be sure to request at least 1024 MB of memory:
+
+.. _interactive job: https://docs.computecanada.ca/wiki/Running_jobs#Interactive_jobs
+
 .. code-block:: bash
 
-    $ cd $PROJECT/$USER/MIDOSS/MOHID/Solutions/mohid-in-linux
+    $ salloc --time=0:10:0 --cpus-per-task=1 --mem-per-cpu=1024m --account=rrg-allen
+    $ cd $PROJECT/$USER/MIDOSS/MIDOSS-MOHID/Solutions/mohid-in-linux
     $ ./compile_mohid.sh -mb1 -mb2 -mw
 
 The output looks something like::
@@ -254,13 +245,13 @@ The output looks something like::
    compile MohidWater OK
 
   ==========================================================================
-  build started:    Thu Sep 27 16:07:56 PDT 2018
-  build completed:  Thu Sep 27 16:14:38 PDT 2018
+  build started:    Tue Dec 18 13:10:09 PST 2018
+  build completed:  Tue Dec 18 13:16:07 PST 2018
 
   --->                  Executables ready                               <---
 
-  total 8
-  lrwxrwxrwx 1 dlatorne def-allen 36 Sep 27 16:14 MohidWater.exe -> ../src/MohidWater/bin/MohidWater.exe
+  total 0
+  lrwxrwxrwx 1 dlatorne def-allen 36 Dec 18 13:16 MohidWater.exe -> ../src/MohidWater/bin/MohidWater.exe
 
   ==========================================================================
 
@@ -274,154 +265,3 @@ and executables with:
 
 so that the next build will be "clean";
 i.e. it won't be able to include any products from previous builds.
-
-.. note::
-    If you going to make changes to the MOHID code,
-    you almost certainly should fork the `MOHID repo`_ on GitHub and change the :command:`git` :kbd:`remotes` so that the project repo is named :kbd:`upstream` and your fork is named :kbd:`origin`.
-    That will enable you to use a version control workflow,
-    committing your changes,
-    and pushing them to GitHub for sharing and redundant storage.
-
-    .. _MOHID repo: https://github.com/Mohid-Water-Modelling-System/Mohid
-
-Compilation can up (≥15%) faster in an `interactive job`_ on :kbd:`cedar`.
-Be sure to request at least 1024 MB of memory:
-
-.. _interactive job: https://docs.computecanada.ca/wiki/Running_jobs#Interactive_jobs
-
-.. code-block:: bash
-
-    salloc --time=0:10:0 --cpus-per-task=1 --mem-per-cpu=1024m --account=rrg-allen
-
-
-Test MOHID
-----------
-
-The `MOHID repo`_ includes a very lightweight test case that you can run to confirm that your built executable works:
-
-.. warning::
-    Please *do not* execute MOHID runs more complex than this test case on the :kbd:`cedar` login node.
-    MOHID starts threads on all available processors.
-    Doing that for more than a few seconds will make you very unpopular with other :kbd:`cedar` users and the system administrators.
-
-.. code-block:: bash
-
-    $ cd $PROJECT/$USER/MIDOSS/MOHID/Solutions/mohid-in-linux/test/mohidwater/25m_deep/exe/
-    $ ./MohidWater.exe
-
-The output looks something like::
-
-  -------------------------- MOHID -------------------------
-
-        AUTHOR   : IST/MARETEC, Marine Modelling Group
-        WWW      : http://www.mohid.com
-
-
-  Copyright (C) 1985, 1998, 2002, 2006.
-  Instituto Superior Tecnico, Technical University of Lisbon
-  -------------------------- MOHID -------------------------
-
-  Constructing Mohid Water
-  Please Wait...
-  -------------------------- MODEL -------------------------
-
-  Constructing      :
-  ID                :            1
-
-  OPENMP: Max number of threads available is           32
-  OPENMP: Using the max number of threads available
-  --------------------- WATERPROPERTIES --------------------
-
-  Num of Properties :            0
-
-  ---------------- INTERFACE SEDIMENT-WATER -----------------
-
-  Num of Properties :            0
-
-
-  Atmosphere DT Prediction Method:            1
-
-  -------------------------- MOHID -------------------------
-
-  Running MOHID, please wait...
-
-  -----Current Simulation Instant---------------------------
-  Time Instant           : 2009: 3: 1: 7:34: 0
-
-  -----CPU Time---------------------------------------------
-  Elapsed                :            2s
-  Remaining (aprox.)     :            5s
-  Completed (%)          :        31.5278
-  Coeficient CPU / Model :         0.0001
-  Seconds per Iteration  :         0.0101s
-  -----System Time------------------------------------------
-  System time            : 2018: 9:27:16:30:47
-  End of the run         : 2018: 9:27:16:30:53
-
-
-
-  -----Current Simulation Instant---------------------------
-  Time Instant           : 2009: 3: 1:16:20: 0
-
-  -----CPU Time---------------------------------------------
-  Elapsed                :            4s
-  Remaining (aprox.)     :            2s
-  Completed (%)          :        68.0556
-  Coeficient CPU / Model :         0.0001
-  Seconds per Iteration  :         0.0089s
-  -----System Time------------------------------------------
-  System time            : 2018: 9:27:16:30:50
-  End of the run         : 2018: 9:27:16:30:52
-
-
-
-  -------------------------- MOHID -------------------------
-
-  Shuting down MOHID, please wait...
-
-  -----Current Simulation Instant---------------------------
-  Time Instant           : 2009: 3: 2: 0: 0: 0
-
-  -----CPU Time---------------------------------------------
-  Elapsed                :            6s
-  Remaining (aprox.)     :            0s
-  Completed (%)          :       100.0000
-  Coeficient CPU / Model :         0.0001
-  Seconds per Iteration  :         0.0098s
-  -----System Time------------------------------------------
-  System time            : 2018: 9:27:16:30:52
-  End of the run         : 2018: 9:27:16:30:52
-
-
-
-  -------------------------- MOHID -------------------------
-
-  Program Mohid Water successfully terminated
-
-
-  Total Elapsed Time     :           7.67   0h  0min  7s
-
-  Total CPU time         :         190.81
-
-  CPU usage (%)          :        2488.74
-
-  Workcycle Elapsed Time :           6.94
-
-  Workcycle CPU time     :         178.22
-
-  Workcycle CPU usage (%):        2569.55
-
-
-  ----------------------------------------------------------
-
-The output consists of 2 files in the :file:`exe/` directory::
-
-  $ ls -l
-  -rw-rw-r-- 1 dlatorne def-allen 48450 Sep 27 16:30 UsedKeyWords_1.dat
-  -rw-rw-r-- 1 dlatorne def-allen  4660 Sep 27 16:30 Error_and_Messages_1.log
-
-and 2 files in the :file:`res/` directory::
-
-  $ ls -l ../res/
-  -rw-rw-r-- 1 dlatorne def-allen   3827 Sep 27 16:30 Outwatch_1.txt
-  -rw-rw-r-- 1 dlatorne def-allen 779688 Sep 27 16:30 Hydrodynamic_1.hdf5
