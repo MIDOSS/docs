@@ -5,7 +5,7 @@ MEOPAR MIDOSS Project Documentation
 
 [![Licensed under a Creative Commons Attribution 4.0 International License](https://img.shields.io/badge/license-CC--By--4.0-lightgrey.svg)](http://creativecommons.org/licenses/by/4.0/)
 [![Version Control](https://img.shields.io/badge/version%20control-hg-blue.svg)](https://bitbucket.org/midoss/docs/)
-[![Documentation Status](https://readthedocs.org/projects/midoss-docs/badge/?version=latest)](https://readthedocs.org/projects/midoss-docs/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/midoss-docs/badge/?version=latest)](https://midoss-docs.readthedocs.io/en/latest/)
 [![Issue Tracker](https://img.shields.io/bitbucket/issues/midoss/docs.svg)](https://bitbucket.org/midoss/docs/issues?status=new&status=open)
 
 This is documentation about the MEOPAR MIDOSS
@@ -13,7 +13,7 @@ This is documentation about the MEOPAR MIDOSS
 
 These docs are rendered at [https://midoss-docs.readthedocs.io/en/latest/](https://midoss-docs.readthedocs.io/en/latest/).
 
-[![Documentation Status](https://readthedocs.org/projects/midoss-docs/badge/?version=latest)](https://readthedocs.org/projects/midoss-docs/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/midoss-docs/badge/?version=latest)](https://midoss-docs.readthedocs.io/en/latest/)
 
 
 License
