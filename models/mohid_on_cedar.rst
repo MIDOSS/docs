@@ -85,11 +85,13 @@ Clone the following repositories:
   (or at the command-line, if necessary)
 * `MOHID-Cmd`_,
   the MIDOSS-MOHID command processor for setting up and managing `MIDOSS-MOHID` _code runs
+* `NEMO-Cmd`_, the NEMO command processor that MOHID-Cmd uses code from
 * `MIDOSS-MOHID`_,
   the MIDOSS project version of `MOHID`_ that includes developed at Dalhousie University
 
 .. _moad_tools: https://bitbucket.org/UBC_MOAD/moad_tools/
 .. _MOHID-Cmd: https://bitbucket.org/midoss/mohid-cmd/
+.. _NEMO-Cmd:
 .. _MIDOSS-MOHID : https://bitbucket.org/midoss/midoss-mohid/
 
 .. code-block:: bash
@@ -97,6 +99,7 @@ Clone the following repositories:
     $ cd $PROJECT/$USER/MIDOSS
     $ hg clone ssh://hg@bitbucket.org/UBC_MOAD/moad_tools
     $ hg clone ssh://hg@bitbucket.org/midoss/mohid-cmd MOHID-Cmd
+    $ hg clone ssh://hg@bitbucket.org/salishsea/nemo-cmd NEMO-Cmd
     $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid MIDOSS-MOHID
 
 
@@ -104,9 +107,9 @@ Install :kbd:`moad_tools` and :kbd:`MOHID-Cmd`
 ----------------------------------------------
 
 .. note::
-    This method of installing the :kbd:`moad_tools` and :kbd:`MOHID-Cmd` Python packages employs the `"user scheme" for installation`_.
+    This method of installing the :kbd:`moad_tools`, :kbd:`NEMO-Cmd`, and :kbd:`MOHID-Cmd` Python packages employs the `"user scheme" for installation`_.
     It is appropriate and necessary on :kbd:`cedar` where we *do not* have our own `Anaconda Python`_ distribution installed.
-    This method *should not* be used EOAS work stations or other machines where you have `Anaconda Python`_ installed.
+    This method *should not* be used on EOAS work stations or other machines where you have `Anaconda Python`_ installed.
 
     .. _"user scheme" for installation: https://packaging.python.org/tutorials/installing-packages/#installing-to-the-user-site
     .. _Anaconda Python: https://www.anaconda.com/what-is-anaconda/
@@ -115,6 +118,7 @@ Install :kbd:`moad_tools` and :kbd:`MOHID-Cmd`
 
     $ cd $PROJECT/$USER/MIDOSS
     $ pip install --user moad_tools
+    $ pip install --user NEMO-Cmd
     $ pip install --user MOHID-Cmd
 
 You can confirm that :kbd:`moad_tools` and :command:`hdf5-to-netcdf4` are correctly installed with the command:
