@@ -63,11 +63,12 @@ Files more than 60 days old are automatically purged from scratch space on :kbd:
 * Your project space is at :file:`$PROJECT/$USER/`
 * Your scratch space is at :file:`$SCRATCH/`
 
-Create a :file:`MIDOSS/` directory tree in your project space:
+Create :file:`MIDOSS/` directory trees in your project and scratch spaces:
 
 .. code-block:: bash
 
     $ mkdir -p $PROJECT/$USER/MIDOSS/results
+    $ mkdir -p $SCRATCH/MIDOSS/runs
 
 .. note::
     If the above command fails,
@@ -88,11 +89,15 @@ Clone the following repositories:
 * `NEMO-Cmd`_, the NEMO command processor that MOHID-Cmd uses code from
 * `MIDOSS-MOHID`_,
   the MIDOSS project version of `MOHID`_ that includes developed at Dalhousie University
+* `MIDOSS-MOHID-config`_,
+  the collection of MOHID run data (.dat) files and run description YAML files for the various oil spill scenarios
+
 
 .. _moad_tools: https://bitbucket.org/UBC_MOAD/moad_tools/
 .. _MOHID-Cmd: https://bitbucket.org/midoss/mohid-cmd/
-.. _NEMO-Cmd:
+.. _NEMO-Cmd: https://bitbucket.org/salishsea/nemo-cmd/
 .. _MIDOSS-MOHID : https://bitbucket.org/midoss/midoss-mohid/
+.. _MIDOSS-MOHID-config: https://bitbucket.org/midoss/midoss-mohid-config/
 
 .. code-block:: bash
 
@@ -101,10 +106,11 @@ Clone the following repositories:
     $ hg clone ssh://hg@bitbucket.org/midoss/mohid-cmd MOHID-Cmd
     $ hg clone ssh://hg@bitbucket.org/salishsea/nemo-cmd NEMO-Cmd
     $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid MIDOSS-MOHID
+    $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid-config MIDOSS-MOHID-config
 
 
-Install :kbd:`moad_tools` and :kbd:`MOHID-Cmd`
-----------------------------------------------
+Install Python Packages
+-----------------------
 
 .. note::
     This method of installing the :kbd:`moad_tools`, :kbd:`NEMO-Cmd`, and :kbd:`MOHID-Cmd` Python packages employs the `"user scheme" for installation`_.
@@ -117,9 +123,9 @@ Install :kbd:`moad_tools` and :kbd:`MOHID-Cmd`
 .. code-block:: bash
 
     $ cd $PROJECT/$USER/MIDOSS
-    $ pip install --user moad_tools
-    $ pip install --user NEMO-Cmd
-    $ pip install --user MOHID-Cmd
+    $ pip3 install --user --editable moad_tools
+    $ pip3 install --user --editable NEMO-Cmd
+    $ pip3 install --user --editable MOHID-Cmd
 
 You can confirm that :kbd:`moad_tools` and :command:`hdf5-to-netcdf4` are correctly installed with the command:
 
