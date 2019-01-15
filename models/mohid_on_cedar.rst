@@ -42,8 +42,8 @@ The :command:`module load` commands needed are:
     you will need to manually load the appropriate modules as necessary.
 
 
-Create a Workspace and Clone the Tools and Code Repositories
-============================================================
+Create a Workspace and Clone the Tools, Code and Configurations Repositories
+============================================================================
 
 :kbd:`cedar` provides`several different types of file storage`_.
 We use project space for our working environments because it is large,
@@ -218,8 +218,8 @@ You can get progress information from :command:`hdf5-to-netcdf4` by using the op
 Please see :command:`hdf5-to-netcdf4 --help` for details.
 
 
-Compile MOHID
-=============
+Compile MIDOSS-MOHID
+====================
 
 Compile and link the `Mohid_Base_1`_,
 `Mohid_Base_2`_,
@@ -275,3 +275,57 @@ and executables with:
 
 so that the next build will be "clean";
 i.e. it won't be able to include any products from previous builds.
+
+
+Test MIDOSS-MOHID
+=================
+
+The :file:`MIDOSS-MOHID-config/MarathassaConstTS/` directory contains a configuration that you can use to do a test run of your setup on :kbd:`cedar`.
+It is the constant temperature and salinity version of the 2014 Marathassa spill in English Bay.
+You should be able to run the test with:
+
+.. code-block:: bash
+
+    $ cd $PROJECT/$USER/MIDOSS/MIDOSS-MOHID-config/MarathassaConstTS/
+    $ mohid run MarathassaConstTS.yaml $PROJECT/$USER/MIDOSS/results/MarathassaConstTS
+
+The output looks something like::
+
+  mohid_cmd.run INFO: Created temporary run directory /scratch/dlatorne/MIDOSS/runs/MarathassaConstTS_2019-01-10T173855.512111-0800
+  mohid_cmd.run INFO: Wrote job run script to /scratch/dlatorne/MIDOSS/runs/MarathassaConstTS_2019-01-10T173855.512111-0800/MOHID.sh
+  mohid_cmd.run INFO: Submitted batch job 15523561
+
+You can use the :command:`squeue` command to monitor the status of your job:
+
+.. code-block:: bash
+
+    $ squeue -u $USER
+
+::
+
+     JOBID     USER      ACCOUNT           NAME  ST START_TIME        TIME_LEFT NODES CPUS   GRES MIN_MEM NODELIST (REASON)
+  15656820 dlatorne def-allen_cp MarathassaCons  PD N/A                 1:30:00     1    1 (null)  20000M  (Priority)
+
+An alias for :command:`squeue` that provides more information and better formatting is:
+
+.. code-block:: bash
+
+    alias sq='squeue -o "%.12i %.8u %.9a %.22j %.2t %.10r %.19S %.10M %.10L %.6D %.5C %N"'
+
+    sq -u $USER
+
+::
+
+     JOBID     USER   ACCOUNT                   NAME ST     REASON          START_TIME       TIME  TIME_LEFT  NODES  CPUS NODELIST
+  15656820 dlatorne def-allen      MarathassaConstTS PD   Priority                 N/A       0:00    1:30:00      1     1
+
+.. warning::
+    Implementation of the :command:`mohid run` command is incomplete.
+    Run results are not yet gathered from the temporary run directory into the results directory given in the :command:`mohid run` command.
+
+The oil particle trajectories calculated by MOHID will be in the :file:`Lagrangian_MarathassaConstTS.nc` file,
+and the oil mass balance will be in the :file:`resOilOutput.sro` file.
+
+.. note::
+    If the :command:`mohid run` command prints an error message,
+    you can get a Python traceback containing more information about the error by re-running the command with the :kbd:`--debug` flag.
