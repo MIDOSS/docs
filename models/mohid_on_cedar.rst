@@ -45,7 +45,7 @@ The :command:`module load` commands needed are:
 Create a Workspace and Clone the Tools, Code and Configurations Repositories
 ============================================================================
 
-:kbd:`cedar` provides`several different types of file storage`_.
+:kbd:`cedar` provides `several different types of file storage`_.
 We use project space for our working environments because it is large,
 high performance,
 and backed up.
@@ -85,7 +85,7 @@ Clone the following repositories:
 * `moad_tools`_ that provides the :command:`hdf5-to-netcdf4` tool for by `MOHID-Cmd`_
   (or at the command-line, if necessary)
 * `MOHID-Cmd`_,
-  the MIDOSS-MOHID command processor for setting up and managing `MIDOSS-MOHID` _code runs
+  the MIDOSS-MOHID command processor for setting up and managing `MIDOSS-MOHID`_ code runs
 * `NEMO-Cmd`_, the NEMO command processor that MOHID-Cmd uses code from
 * `MIDOSS-MOHID`_,
   the MIDOSS project version of `MOHID`_ that includes developed at Dalhousie University
