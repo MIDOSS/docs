@@ -206,7 +206,7 @@ transformation of a :file:`Lagrangian.hdf5` from a MOHID run for 7 days of model
     nearly 20,000 Mb.
     It is hoped that will change in the future.
 
-One the interactive session starts,
+Once the interactive session starts,
 do the transformation with:
 
 .. code-block:: bash
@@ -238,7 +238,7 @@ Be sure to request at least 1024 MB of memory:
 .. code-block:: bash
 
     $ salloc --time=0:10:0 --cpus-per-task=1 --mem-per-cpu=1024m --account=rrg-allen
-    $ cd $PROJECT/$USER/MIDOSS/MIDOSS-MOHID/Solutions/mohid-in-linux
+    $ cd $PROJECT/$USER/MIDOSS/MIDOSS-MOHID/Solutions/linux
     $ ./compile_mohid.sh -mb1 -mb2 -mw
 
 The output looks something like::
