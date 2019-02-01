@@ -171,51 +171,10 @@ from which you should see output like::
 
   Commands:
     complete       print bash completion command (cliff)
+    gather         Gather results files from a MIDOSS-MOHID run.
     help           print detailed help for another command (cliff)
     prepare        Set up the MIDOSS-MOHID run described in DESC_FILE and print the path of the temporary run directory.
-
-
-Using :command:`hdf5-to-netcdf4`
---------------------------------
-
-.. note::
-    `MOHID-Cmd`_ is not yet fully functional.
-    In particular,
-    it does not yet include the ability to transform MOHID HDF5 output files into netCDF4 files.
-    For now you have to do that using the :command:`hdf5-to-netcdf4` command-line tool.
-
-The :command:`hdf5-to-netcdf4` command-line tool can be used to transform a MOHID HDF5 output file into a netCDF4 file.
-Doing so is resource intensive in terms of memory and disk i/o,
-so it has to be done in an `interactive slurm session`_ on :kbd:`cedar`.
-
-.. _interactive slurm session: https://docs.computecanada.ca/wiki/Running_jobs#Interactive_jobs
-
-Start an interactive :kbd:`slurm` session with a command like:
-
-.. code-block:: bash
-
-    $ salloc --time=00:10:0 --cpus-per-task=1 --mem-per-cpu=20000m --account=rrg-allen
-
-Choose the :kbd:`--time` value to be close to what you expect to need in order to avoid having to wait too long for the session to be allocated to you.
-For guidance,
-transformation of a :file:`Lagrangian.hdf5` from a MOHID run for 7 days of model time on the SalishSeaCast domain takes about 6m30s.
-
-.. note::
-    At present,
-    running :command:`hdf5-to-netcdf4` on cedar requires a crazy large memory allocation,
-    nearly 20,000 Mb.
-    It is hoped that will change in the future.
-
-Once the interactive session starts,
-do the transformation with:
-
-.. code-block:: bash
-
-    $ hdf5-to-netcdf4 Lagrangian.hdf5 Lagrangian.nc
-
-You can prefix the hdf5 and nc file names with paths.
-You can get progress information from :command:`hdf5-to-netcdf4` by using the options :kbd:`--verbosity info` or :kbd:`--verbosity debug`.
-Please see :command:`hdf5-to-netcdf4 --help` for details.
+    run            Prepare, execute, and gather results from a MIDOSS-MOHID model run.
 
 
 Compile MIDOSS-MOHID
@@ -319,13 +278,53 @@ An alias for :command:`squeue` that provides more information and better formatt
      JOBID     USER   ACCOUNT                   NAME ST     REASON          START_TIME       TIME  TIME_LEFT  NODES  CPUS NODELIST
   15656820 dlatorne def-allen      MarathassaConstTS PD   Priority                 N/A       0:00    1:30:00      1     1
 
-.. warning::
-    Implementation of the :command:`mohid run` command is incomplete.
-    Run results are not yet gathered from the temporary run directory into the results directory given in the :command:`mohid run` command.
-
 The oil particle trajectories calculated by MOHID will be in the :file:`Lagrangian_MarathassaConstTS.nc` file,
 and the oil mass balance will be in the :file:`resOilOutput.sro` file.
 
 .. note::
     If the :command:`mohid run` command prints an error message,
     you can get a Python traceback containing more information about the error by re-running the command with the :kbd:`--debug` flag.
+
+
+Using :command:`hdf5-to-netcdf4`
+================================
+
+.. note::
+    The :command:`mohid run` command generates a :file:`MOHID.sh` shell script that includes using the :command:`hdf5-to-netcdf4` command-line tool to transform a MOHID :file:`Lagrangian.hdf5` output file into a netCDF4 file.
+    `MOHID-Cmd`_ is not yet fully functional.
+    So,
+    you generally shouldn't need to use :command:`hdf5-to-netcdf4` by itself,
+    but this section describes how to do so if necessary.
+
+The :command:`hdf5-to-netcdf4` command-line tool can be used to transform a MOHID :file:`Lagrangian.hdf5` output file into a netCDF4 file.
+Doing so is resource intensive in terms of memory and disk i/o,
+so it has to be done in an `interactive slurm session`_ on :kbd:`cedar`.
+
+.. _interactive slurm session: https://docs.computecanada.ca/wiki/Running_jobs#Interactive_jobs
+
+Start an interactive :kbd:`slurm` session with a command like:
+
+.. code-block:: bash
+
+    $ salloc --time=00:10:0 --cpus-per-task=1 --mem-per-cpu=20000m --account=rrg-allen
+
+Choose the :kbd:`--time` value to be close to what you expect to need in order to avoid having to wait too long for the session to be allocated to you.
+For guidance,
+transformation of a :file:`Lagrangian.hdf5` from a MOHID run for 7 days of model time on the SalishSeaCast domain takes about 6m30s.
+
+.. note::
+    At present,
+    running :command:`hdf5-to-netcdf4` on cedar requires a crazy large memory allocation,
+    nearly 20,000 Mb.
+    It is hoped that will change in the future.
+
+Once the interactive session starts,
+do the transformation with:
+
+.. code-block:: bash
+
+    $ hdf5-to-netcdf4 Lagrangian.hdf5 Lagrangian.nc
+
+You can prefix the hdf5 and nc file names with paths.
+You can get progress information from :command:`hdf5-to-netcdf4` by using the options :kbd:`--verbosity info` or :kbd:`--verbosity debug`.
+Please see :command:`hdf5-to-netcdf4 --help` for details.
