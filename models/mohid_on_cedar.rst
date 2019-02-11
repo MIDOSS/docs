@@ -196,7 +196,7 @@ Be sure to request at least 1024 MB of memory:
 
 .. code-block:: bash
 
-    $ salloc --time=0:10:0 --cpus-per-task=1 --mem-per-cpu=1024m --account=rrg-allen
+    $ salloc --time=0:10:0 --cpus-per-task=1 --mem-per-cpu=1024m --account=def-allen
     $ cd $PROJECT/$USER/MIDOSS/MIDOSS-MOHID/Solutions/linux
     $ ./compile_mohid.sh -mb1 -mb2 -mw
 
@@ -306,7 +306,7 @@ Start an interactive :kbd:`slurm` session with a command like:
 
 .. code-block:: bash
 
-    $ salloc --time=00:10:0 --cpus-per-task=1 --mem-per-cpu=20000m --account=rrg-allen
+    $ salloc --time=00:10:0 --cpus-per-task=1 --mem-per-cpu=20000m --account=def-allen
 
 Choose the :kbd:`--time` value to be close to what you expect to need in order to avoid having to wait too long for the session to be allocated to you.
 For guidance,
