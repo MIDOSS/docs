@@ -291,7 +291,6 @@ Using :command:`hdf5-to-netcdf4`
 
 .. note::
     The :command:`mohid run` command generates a :file:`MOHID.sh` shell script that includes using the :command:`hdf5-to-netcdf4` command-line tool to transform a MOHID :file:`Lagrangian.hdf5` output file into a netCDF4 file.
-    `MOHID-Cmd`_ is not yet fully functional.
     So,
     you generally shouldn't need to use :command:`hdf5-to-netcdf4` by itself,
     but this section describes how to do so if necessary.
@@ -306,24 +305,25 @@ Start an interactive :kbd:`slurm` session with a command like:
 
 .. code-block:: bash
 
-    $ salloc --time=00:10:0 --cpus-per-task=1 --mem-per-cpu=20000m --account=def-allen
+    $ salloc --time=00:20:0 --cpus-per-task=1 --mem-per-cpu=800m --account=def-allen
 
 Choose the :kbd:`--time` value to be close to what you expect to need in order to avoid having to wait too long for the session to be allocated to you.
 For guidance,
-transformation of a :file:`Lagrangian.hdf5` from a MOHID run for 7 days of model time on the SalishSeaCast domain takes about 6m30s.
-
-.. note::
-    At present,
-    running :command:`hdf5-to-netcdf4` on cedar requires a crazy large memory allocation,
-    nearly 20,000 Mb.
-    It is hoped that will change in the future.
+transformation of a :file:`Lagrangian.hdf5` from a MOHID run for 7 days of model time on the SalishSeaCast domain takes anywhere from 6m30s to 17m30s,
+depending on how :kbd:`cedar` is operating.
 
 Once the interactive session starts,
-do the transformation with:
+do the transformation by:
+
+1. Copying the :file:`.hdf5` to fast, local SSD storage on the node
+2. Running :command:`hdf5-to-netcdf4` to store the :file:`.nc` file on SSD storage
+3. Copying the :file:`.nc` file back to project or scratch storage
 
 .. code-block:: bash
 
+    $ cp Lagrangian.hdf5 $SLURM_TMPDIR/Lagrangian.hdf5
     $ hdf5-to-netcdf4 Lagrangian.hdf5 Lagrangian.nc
+    $ cp $SLURM_TMPDIR/Lagrangian.nc Lagrangian.hdf5
 
 You can prefix the hdf5 and nc file names with paths.
 You can get progress information from :command:`hdf5-to-netcdf4` by using the options :kbd:`--verbosity info` or :kbd:`--verbosity debug`.
