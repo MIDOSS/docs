@@ -85,9 +85,9 @@ Clone the following repositories:
 * `moad_tools`_ that provides the :command:`hdf5-to-netcdf4` tool for by `MOHID-Cmd`_
   (or at the command-line, if necessary)
 * `MOHID-Cmd`_,
-  the MIDOSS-MOHID command processor for setting up and managing `MIDOSS-MOHID`_ code runs
+  the MIDOSS-MOHID command processor for setting up and managing `MIDOSS-MOHID-CODE`_ code runs
 * `NEMO-Cmd`_, the NEMO command processor that MOHID-Cmd uses code from
-* `MIDOSS-MOHID`_,
+* `MIDOSS-MOHID-CODE`_,
   the MIDOSS project version of `MOHID`_ that includes developed at Dalhousie University
 * `MIDOSS-MOHID-config`_,
   the collection of MOHID run data (.dat) files and run description YAML files for the various oil spill scenarios
@@ -96,7 +96,7 @@ Clone the following repositories:
 .. _moad_tools: https://bitbucket.org/UBC_MOAD/moad_tools/
 .. _MOHID-Cmd: https://bitbucket.org/midoss/mohid-cmd/
 .. _NEMO-Cmd: https://bitbucket.org/salishsea/nemo-cmd/
-.. _MIDOSS-MOHID : https://bitbucket.org/midoss/midoss-mohid/
+.. _MIDOSS-MOHID-CODE : https://bitbucket.org/midoss/midoss-mohid-code/
 .. _MIDOSS-MOHID-config: https://bitbucket.org/midoss/midoss-mohid-config/
 
 .. code-block:: bash
@@ -105,7 +105,7 @@ Clone the following repositories:
     $ hg clone ssh://hg@bitbucket.org/UBC_MOAD/moad_tools
     $ hg clone ssh://hg@bitbucket.org/midoss/mohid-cmd MOHID-Cmd
     $ hg clone ssh://hg@bitbucket.org/salishsea/nemo-cmd NEMO-Cmd
-    $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid MIDOSS-MOHID
+    $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid-code MIDOSS-MOHID-CODE
     $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid-config MIDOSS-MOHID-config
 
 
@@ -197,7 +197,7 @@ Be sure to request at least 1024 MB of memory:
 .. code-block:: bash
 
     $ salloc --time=0:10:0 --cpus-per-task=1 --mem-per-cpu=1024m --account=def-allen
-    $ cd $PROJECT/$USER/MIDOSS/MIDOSS-MOHID/Solutions/linux
+    $ cd $PROJECT/$USER/MIDOSS/MIDOSS-MOHID-CODE/Solutions/linux
     $ ./compile_mohid.sh -mb1 -mb2 -mw
 
 The output looks something like::
