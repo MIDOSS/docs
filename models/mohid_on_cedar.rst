@@ -230,7 +230,7 @@ and executables with:
 
 .. code-block:: bash
 
-    $ ./compile_mohid --clean
+    $ ./compile_mohid.sh --clean
 
 so that the next build will be "clean";
 i.e. it won't be able to include any products from previous builds.
