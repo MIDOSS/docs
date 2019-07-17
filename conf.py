@@ -6,16 +6,22 @@
 # full list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
 
+import datetime
+
 
 # -- Project information -----------------------------------------------------
 
 project = 'MEOPAR MIDOSS Project Docs'
-copyright = (
-    '2018, '
+author = (
     'The MIDOSS Project Contributors, '
     'the University of British Columbia, '
     'and Dalhousie University')
-author = 'The MIDOSS Project Contributors'
+copyright_years = (
+    "2018"
+    if datetime.date.today().year == 2018
+    else f"2018-{datetime.date.today():%Y}"
+)
+copyright = f"{copyright_years}, {author}"
 
 # The short X.Y version
 version = ''
