@@ -86,9 +86,12 @@ Clone the following repositories:
   (or at the command-line, if necessary)
 * `MOHID-Cmd`_,
   the MIDOSS-MOHID command processor for setting up and managing `MIDOSS-MOHID-CODE`_ code runs
-* `NEMO-Cmd`_, the NEMO command processor that MOHID-Cmd uses code from
+* `NEMO-Cmd`_,
+  the NEMO command processor that MOHID-Cmd uses code from
 * `MIDOSS-MOHID-CODE`_,
   the MIDOSS project version of `MOHID`_ that includes developed at Dalhousie University
+* `MIDOSS-MOHID-grid`_,
+   the collection of grid-related files as well as those used for creating the forcing :file:`.hdf5` files
 * `MIDOSS-MOHID-config`_,
   the collection of MOHID run data (.dat) files and run description YAML files for the various oil spill scenarios
 
@@ -96,7 +99,8 @@ Clone the following repositories:
 .. _moad_tools: https://bitbucket.org/UBC_MOAD/moad_tools/
 .. _MOHID-Cmd: https://bitbucket.org/midoss/mohid-cmd/
 .. _NEMO-Cmd: https://bitbucket.org/salishsea/nemo-cmd/
-.. _MIDOSS-MOHID-CODE : https://bitbucket.org/midoss/midoss-mohid-code/
+.. _MIDOSS-MOHID-CODE: https://bitbucket.org/midoss/midoss-mohid-code/
+.. _MIDOSS-MOHID-grid: https://bitbucket.org/midoss/midoss-mohid-grid/
 .. _MIDOSS-MOHID-config: https://bitbucket.org/midoss/midoss-mohid-config/
 
 .. code-block:: bash
@@ -106,6 +110,7 @@ Clone the following repositories:
     $ hg clone ssh://hg@bitbucket.org/midoss/mohid-cmd MOHID-Cmd
     $ hg clone ssh://hg@bitbucket.org/salishsea/nemo-cmd NEMO-Cmd
     $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid-code MIDOSS-MOHID-CODE
+    $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid-grid MIDOSS-MOHID-grid
     $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid-config MIDOSS-MOHID-config
 
 
