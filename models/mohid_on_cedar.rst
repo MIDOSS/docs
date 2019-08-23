@@ -91,7 +91,7 @@ Clone the following repositories:
 * `MIDOSS-MOHID-CODE`_,
   the MIDOSS project version of `MOHID`_ that includes developed at Dalhousie University
 * `MIDOSS-MOHID-grid`_,
-   the collection of grid-related files as well as those used for creating the forcing :file:`.hdf5` files
+  the collection of grid-related files as well as those used for creating the forcing :file:`.hdf5` files
 * `MIDOSS-MOHID-config`_,
   the collection of MOHID run data (.dat) files and run description YAML files for the various oil spill scenarios
 
