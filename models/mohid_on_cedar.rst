@@ -187,7 +187,7 @@ Compile MIDOSS-MOHID
 
 Compile and link the `Mohid_Base_1`_,
 `Mohid_Base_2`_,
-and `MohidWater`_ parts of the `MOHID Framework`_ with the commands:
+and `MohidWater`_ parts of the `MOHID Framework`_.
 
 .. _Mohid_Base_1: http://wiki.mohid.com/index.php?title=Mohid_Base_1
 .. _Mohid_Base_2: http://wiki.mohid.com/index.php?title=Mohid_Base_2
