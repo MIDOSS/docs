@@ -1,4 +1,4 @@
-.. Copyright 2018-2019 The MIDOSS project contributors,
+.. Copyright 2018 The MIDOSS project contributors,
 .. the University of British Columbia, and Dalhousie University.
 ..
 .. Licensed under a Creative Commons Attribution 4.0 International License
@@ -20,3 +20,4 @@ This section is a collection of notes about the computational models used in the
    :caption: Contents:
 
    mohid_on_cedar
+   wwatch3_on_cedar
