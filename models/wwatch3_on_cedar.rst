@@ -99,7 +99,7 @@ Unpack the wwatch3 code tarball and prepare it for building.
 
 .. code-block:: bash
 
-    $ cd $PROJECT/$USER/MIDOSS/MIDOSS/wwatch3-5.16
+    $ cd $PROJECT/$USER/MIDOSS/wwatch3-5.16
     $ tar -xvzf /home/dlatorne/wwatch3.v5.16.tar.gz
     $ ./install_ww3_tar
 
