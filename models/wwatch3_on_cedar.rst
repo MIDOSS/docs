@@ -229,3 +229,81 @@ Compile and link the wwatch3 model programs:
     $ cd $PROJECT/$USER/MIDOSS/wwatch3-5.16/work
     $ w3_make
 
+
+.. _GenerateWind&CurrentForcingFilesOnSalish:
+
+Generate Wind & Current Forcing Files on :kbd:`salish`
+======================================================
+
+wwatch3 uses netCDF4 wind and current forcing files that are generated from the HRDPS surface forcing files that are used to force SalishSeaCast NEMO runs,
+and the surface current fields that are produced by those runs.
+
+For the moment,
+generation of those forcing files has to be done on :kbd:`salish` and then the files uploaded from there to :kbd:`cedar`.
+This section describes the process for doing that.
+
+We use the :ref:`salishseanowcast:MakeWW3WindFile-Worker` and :ref:`salishseanowcast:MakeWW3CurrentFile-Worker` workers from the SalishSeaCast automation system in :kbd:`--debug` mode to generate the forcing files.
+
+.. warning::
+    Always run the workers with the :kbd:`--debug` command-line option.
+    That sends all logging information from the workers to the screen instead of log files,
+    and prevents the workers from trying to communicate with the automation system manage.
+
+    Running a worker without the :kbd:`--debug` option may disrupt the SalishSeaCast automation system.
+
+Follow the instructions to set up a SalishSeaNowcast :ref:`salishseanowcast:SalishSeaNowcastDevelopmentEnvironment`.
+
+A special SalishSeaNowcast configuration for generating wwatch3 forcing files is stored in :file:`SalishSeaNowcast/config/wwatch3-forcing.yaml`
+
+With your SalishSeaNowcast :ref:`salishseanowcast:SalishSeaNowcastDevelopmentEnvironment` activated,
+you can run :ref:`salishseanowcast:MakeWW3WindFile-Worker` with the command:
+
+.. code-block:: bash
+
+    (salishsea-nowcast)$ python -m nowcast.workers.make_ww3_wind_file SalishSeaNowcast/config/wwatch3-forcing.yaml --debug salish nowcast --run-date yyyy-mm-dd
+
+The generated forcing file will be stored in :file:`/data/MIDOSS/forcing/wwatch3/wind/SoG_wind_yyyymmdd.nc`.
+
+Likewise,
+you can run :ref:`salishseanowcast:MakeWW3CurrentFile-Worker` with:
+
+.. code-block:: bash
+
+    (salishsea-nowcast)$ python -m nowcast.workers.make_ww3_current_file SalishSeaNowcast/config/wwatch3-forcing.yaml --debug salish nowcast --run-date yyyy-mm-dd
+
+The generated forcing file will be stored in :file:`/data/MIDOSS/forcing/wwatch3/current/SoG_current_yyyymmdd.nc`.
+
+A bash script like:
+
+.. code-block:: bash
+
+    yyyy=2015
+    mm=01
+    for dd in {01..31}
+    do
+      python -m nowcast.workers.make_ww3_wind_file SalishSeaNowcast/config/wwatch3-forcing.yaml --debug salish nowcast --run-date ${yyyy}-${mm}-${dd}
+      python -m nowcast.workers.make_ww3_current_file SalishSeaNowcast/config/wwatch3-forcing.yaml --debug salish nowcast --run-date ${yyyy}-${mm}-${dd}
+    done
+
+will enable you to run the workers for a month at a time.
+
+The generated files are at total of 74M per day
+(6.8M for the wind file,
+and 67M for the current file).
+That scales to approximately 2.2G per month,
+26.7G per year,
+and 133.3G for the 2015 to late-2019 period covered by the :kbd:`nowcast-green.201812` SalishSeaCast NEMO results dataset.
+
+The files will be produced with :kbd:`-rw-r--r--` permissions.
+To make them group-writable,
+you can use:
+
+.. code-block:: bash
+
+    find /data/MIDOSS/forcing/wwatch3/ -type f -execdir chmod g+w {} \;
+
+To upload the files to :kbd:`cedar` you can use:
+
+.. code-block:: bash
+
+    rsync -rltv /data/MIDOSS/forcing/wwatch3/ cedar:/scratch/dlatorne/MIDOSS/forcing/wwatch3/
