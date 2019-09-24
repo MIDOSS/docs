@@ -66,8 +66,8 @@ Create :file:`MIDOSS/` directory trees in your project and scratch spaces:
 
 .. code-block:: bash
 
-    $ mkdir -p $PROJECT/$USER/MIDOSS/MIDOSS/wwatch3-5.16
-    $ mkdir -p $PROJECT/$USER/MIDOSS/MIDOSS/wwatch3-runs
+    $ mkdir -p $PROJECT/$USER/MIDOSS/wwatch3-5.16
+    $ mkdir -p $PROJECT/$USER/MIDOSS/wwatch3-runs
     $ mkdir -p $SCRATCH/MIDOSS/wwatch3
 
 .. note::
@@ -218,7 +218,7 @@ Export the environment variables that are required to build wwatch3:
 
   .. code-block:: bash
 
-    $ export PATH=$PATH:$PROJECT/$USER/MIDOSS/MIDOSS/wwatch3-5.16/bin:$PROJECT/$USER/MIDOSS/MIDOSS/wwatch3-5.16/exe
+    $ export PATH=$PATH:$PROJECT/$USER/MIDOSS/wwatch3-5.16/bin:$PROJECT/$USER/MIDOSS/MIDOSS/wwatch3-5.16/exe
     $ export WWATCH3_NETCDF=NC4
     $ export NETCDF_CONFIG=$(which nc-config)
 
@@ -226,7 +226,7 @@ Compile and link the wwatch3 model programs:
 
 .. code-block:: bash
 
-    $ cd $PROJECT/$USER/MIDOSS/MIDOSS/wwatch3-5.16/work
+    $ cd $PROJECT/$USER/MIDOSS/wwatch3-5.16/work
     $ w3_make
 
 
