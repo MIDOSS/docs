@@ -154,7 +154,7 @@ That stage of the build preparation should finish with output that looks similar
 Set up the :file:`comp` and :file:`link` scripts in the :file:`bin/` directory:
 
   * Edit the :file:`comp.Intel` script to change 2 occurrences of :kbd:`mpiifort`
-    (with 2 :kbd:`i`s)
+    (with 2 :kbd:`i` s)
     to :kbd:`mpifort`
     (with 1 :kbd:`i`);
     i.e. change:
@@ -176,7 +176,7 @@ Set up the :file:`comp` and :file:`link` scripts in the :file:`bin/` directory:
         which mpifort 1> /dev/null 2> /dev/null
 
   * Edit the :file:`link.Intel` script to change 2 occurrences of :kbd:`mpiifort`
-    (with 2 :kbd:`i`s)
+    (with 2 :kbd:`i` s)
     to :kbd:`mpifort`
     (with 1 :kbd:`i`);
     i.e. change:
