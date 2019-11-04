@@ -33,7 +33,7 @@ The :command:`module load` commands needed are:
     module load nco/4.6.6
     module load netcdf-fortran/4.4.4
     module load proj4-fortran/1.0
-    module load python/3.7.0
+    module load python/3.7
 
 .. warning::
     The :kbd:`nco/4.6.6` module is incompatible with the :kbd:`module load netcdf-fortran-mpi/4.4.4` module that is required to run NEMO.
@@ -128,9 +128,9 @@ Install Python Packages
 .. code-block:: bash
 
     $ cd $PROJECT/$USER/MIDOSS
-    $ pip3 install --user --editable moad_tools
-    $ pip3 install --user --editable NEMO-Cmd
-    $ pip3 install --user --editable MOHID-Cmd
+    $ python3.7 -m pip install --user --editable moad_tools
+    $ python3.7 -m pip install --user --editable NEMO-Cmd
+    $ python3.7 -m pip install --user --editable MOHID-Cmd
 
 You can confirm that :kbd:`moad_tools` and :command:`hdf5-to-netcdf4` are correctly installed with the command:
 
