@@ -100,6 +100,7 @@ Funding Organizations
    :caption: Contents:
 
    models/index
+   TifFiles
    python_code/index
    contributing
    CONTRIBUTORS
