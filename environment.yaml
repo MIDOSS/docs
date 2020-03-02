@@ -19,7 +19,6 @@
 name: midoss-docs
 
 channels:
-  - conda-forge
   - defaults
 
 dependencies:

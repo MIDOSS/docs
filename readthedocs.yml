@@ -5,9 +5,6 @@ version: 2
 # Only build HTML and JSON formats
 formats: []
 
-python:
-  version: 3.8
-
 conda:
   environment: environment.yaml
 
