@@ -4,9 +4,9 @@ MEOPAR MIDOSS Project Documentation
 **License:** Creative Commons Attribution 4.0 International
 
 [![Licensed under a Creative Commons Attribution 4.0 International License](https://img.shields.io/badge/license-CC--By--4.0-lightgrey.svg)](http://creativecommons.org/licenses/by/4.0/)
-[![Version Control](https://img.shields.io/badge/version%20control-hg-blue.svg)](https://bitbucket.org/midoss/docs/)
+[![Git on GitHub](https://img.shields.io/badge/version%20control-git-blue.svg?logo=github)](https://github.com/MIDOSS/docs)
 [![Documentation Status](https://readthedocs.org/projects/midoss-docs/badge/?version=latest)](https://midoss-docs.readthedocs.io/en/latest/)
-[![Issue Tracker](https://img.shields.io/bitbucket/issues/midoss/docs.svg)](https://bitbucket.org/midoss/docs/issues?status=new&status=open)
+[![Issue Tracker](https://img.shields.io/github/issues/UBC-MOAD/docs?logo=github)](https://github.com/MIDOSS/docs/issues)
 
 This is documentation about the MEOPAR MIDOSS
 (Model of Impact of Dilbit and Oil Spills in the Salish Sea) project.
