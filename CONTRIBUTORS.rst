@@ -32,3 +32,4 @@ The following people have contributed to this documentation:
 * Ben Moore-Maley <bmoorema@eoas.ubc.ca>
 * Doug Latornell <dlatornell@eoas.ubc.ca>
 * Rachael Mueller <rmueller@eoas.ubc.ca>
+* Vicky Do <vdo@eoas.ubc.ca>
