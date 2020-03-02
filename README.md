@@ -22,7 +22,7 @@ License
 [![Licensed under a Creative Commons Attribution 4.0 International License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
 
 The MEOPAR MIDOSS Project Documentation is copyright 2018-2020 by the
-[MIDOSS project contributors](https://bitbucket.org/midoss/docs/src/tip/CONTRIBUTORS.rst),
+[MIDOSS project contributors](https://github.com/MIDOSS/docs/blob/master/CONTRIBUTORS.rst),
 the University of British Columbia,
 and Dalhousie University.
 It is licensed under a
