@@ -276,4 +276,4 @@ and Dalhousie University.
 
 It is licensed under a `Creative Commons Attribution 4.0 International License`_.
 
-_Creative Commons Attribution 4.0 International License: http://creativecommons.org/licenses/by/4.0/
+.. _Creative Commons Attribution 4.0 International License: http://creativecommons.org/licenses/by/4.0/
