@@ -96,7 +96,7 @@ Clone the following repositories:
   the collection of MOHID run data (.dat) files and run description YAML files for the various oil spill scenarios
 
 
-.. _moad_tools: https://bitbucket.org/UBC_MOAD/moad_tools/
+.. _moad_tools: https://github.com/UBC-MOAD/moad_tools
 .. _MOHID-Cmd: https://bitbucket.org/midoss/mohid-cmd/
 .. _NEMO-Cmd: https://bitbucket.org/salishsea/nemo-cmd/
 .. _MIDOSS-MOHID-CODE: https://bitbucket.org/midoss/midoss-mohid-code/
@@ -106,7 +106,7 @@ Clone the following repositories:
 .. code-block:: bash
 
     $ cd $PROJECT/$USER/MIDOSS
-    $ hg clone ssh://hg@bitbucket.org/UBC_MOAD/moad_tools
+    $ git clone git@github.com:UBC-MOAD/moad_tools.git
     $ hg clone ssh://hg@bitbucket.org/midoss/mohid-cmd MOHID-Cmd
     $ hg clone ssh://hg@bitbucket.org/salishsea/nemo-cmd NEMO-Cmd
     $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid-code MIDOSS-MOHID-CODE
