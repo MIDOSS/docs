@@ -99,7 +99,7 @@ Clone the following repositories:
 .. _moad_tools: https://github.com/UBC-MOAD/moad_tools
 .. _MOHID-Cmd: https://bitbucket.org/midoss/mohid-cmd/
 .. _NEMO-Cmd: https://bitbucket.org/salishsea/nemo-cmd/
-.. _MIDOSS-MOHID-CODE: https://bitbucket.org/midoss/midoss-mohid-code/
+.. _MIDOSS-MOHID-CODE: https://github.com/MIDOSS/MIDOSS-MOHID-CODE
 .. _MIDOSS-MOHID-grid: https://github.com/MIDOSS/MIDOSS-MOHID-grid
 .. _MIDOSS-MOHID-config: https://bitbucket.org/midoss/midoss-mohid-config/
 
@@ -109,7 +109,7 @@ Clone the following repositories:
     $ git clone git@github.com:UBC-MOAD/moad_tools.git
     $ hg clone ssh://hg@bitbucket.org/midoss/mohid-cmd MOHID-Cmd
     $ hg clone ssh://hg@bitbucket.org/salishsea/nemo-cmd NEMO-Cmd
-    $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid-code MIDOSS-MOHID-CODE
+    $ git clone git@github.com:MIDOSS/MIDOSS-MOHID-CODE.git
     $ git clone git@github.com:MIDOSS/MIDOSS-MOHID-grid.git
     $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid-config MIDOSS-MOHID-config
 
