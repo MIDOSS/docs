@@ -201,7 +201,7 @@ Be sure to request at least 1024 MB of memory:
 
 .. code-block:: bash
 
-    $ salloc --time=0:10:0 --cpus-per-task=1 --mem-per-cpu=1024m --account=def-allen
+    $ salloc --time=0:30:0 --cpus-per-task=1 --mem-per-cpu=1024m --account=def-allen
     $ cd $PROJECT/$USER/MIDOSS/MIDOSS-MOHID-CODE/Solutions/linux
     $ ./compile_mohid.sh -mb1 -mb2 -mw
 
