@@ -83,12 +83,12 @@ Create :file:`MIDOSS/` directory trees in your project and scratch spaces:
 Clone the `SalishSeaWaves`_ repository,
 the collection of configuration files for the Strait of Georgia wwatch3 model:
 
-.. _SalishSeaWaves: https://bitbucket.org/salishsea/salishseawaves/src/default/
+.. _SalishSeaWaves: https://github.com/SalishSeaCast/SalishSeaWaves
 
 .. code-block:: bash
 
     $ cd $PROJECT/$USER/MIDOSS
-    $ hg clone ssh://hg@bitbucket.org/salishsea/salishseawaves SalishSeaWaves
+    $ git clone git@github.com:SalishSeaCast/SalishSeaWaves.git
 
 
 Compile WAVEWATCH III :sup:`®`
