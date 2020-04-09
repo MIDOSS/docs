@@ -6,22 +6,22 @@
 ..    https://creativecommons.org/licenses/by/4.0/
 
 
-.. _MOHID-OnCedar:
+.. _MOHID-OnGraham:
 
-****************************
-MIDOSS MOHID on :kbd:`cedar`
-****************************
+*****************************
+MIDOSS MOHID on :kbd:`graham`
+*****************************
 
-This section describes the steps to set up and run the MIDOSS version of the `MOHID`_ code on the ComputeCanada `cedar.computecanada.ca`_ HPC cluster.
+This section describes the steps to set up and run the MIDOSS version of the `MOHID`_ code on the ComputeCanada `graham.computecanada.ca`_ HPC cluster.
 
 .. _MOHID: http://www.mohid.com/
-.. _cedar.computecanada.ca: https://docs.computecanada.ca/wiki/Cedar
+.. _graham.computecanada.ca: https://docs.computecanada.ca/wiki/Graham
 
 
-Modules setup
+Modules Setup
 =============
 
-When working on :kbd:`cedar`, the :command:`module load` command must be used to load extra software components.
+When working on :kbd:`graham`, the :command:`module load` command must be used to load extra software components.
 
 You can manually load the modules each time you log in,
 or you can add the lines to your :file:`$HOME/.bashrc` file so that they are automatically loaded upon login.
@@ -33,7 +33,7 @@ The :command:`module load` commands needed are:
     module load nco/4.6.6
     module load netcdf-fortran/4.4.4
     module load proj4-fortran/1.0
-    module load python/3.7
+    module load python/3
 
 .. warning::
     The :kbd:`nco/4.6.6` module is incompatible with the :kbd:`module load netcdf-fortran-mpi/4.4.4` module that is required to run NEMO.
@@ -45,7 +45,7 @@ The :command:`module load` commands needed are:
 Create a Workspace and Clone the Tools, Code and Configurations Repositories
 ============================================================================
 
-:kbd:`cedar` provides `several different types of file storage`_.
+:kbd:`graham` provides `several different types of file storage`_.
 We use project space for our working environments because it is large,
 high performance,
 and backed up.
@@ -54,11 +54,11 @@ also high performance,
 but not backed up,
 so we use that as the space to execute MOHID runs in,
 but generally move the run results to project space.
-Files more than 60 days old are automatically purged from scratch space on :kbd:`cedar`.
+Files more than 60 days old are automatically purged from scratch space on :kbd:`graham`.
 
 .. _several different types of file storage: https://docs.computecanada.ca/wiki/Storage_and_file_management
 
-:kbd:`cedar` automatically provides environment variables that are more convenient that remembering full paths to access your project and scratch spaces:
+:kbd:`graham` automatically provides environment variables that are more convenient that remembering full paths to access your project and scratch spaces:
 
 * Your project space is at :file:`$PROJECT/$USER/`
 * Your scratch space is at :file:`$SCRATCH/`
@@ -72,7 +72,7 @@ Create :file:`MIDOSS/` directory trees in your project and scratch spaces:
 
 .. note::
     If the above command fails,
-    it may be because the symbolic link that :envvar:`PROJECT` points to was not created when your :kbd:`cedar` account was set up.
+    it may be because the symbolic link that :envvar:`PROJECT` points to was not created when your :kbd:`graham` account was set up.
     Try:
 
     .. code-block:: bash
@@ -119,7 +119,7 @@ Install Python Packages
 
 .. note::
     This method of installing the :kbd:`moad_tools`, :kbd:`NEMO-Cmd`, and :kbd:`MOHID-Cmd` Python packages employs the `"user scheme" for installation`_.
-    It is appropriate and necessary on :kbd:`cedar` where we *do not* have our own `Anaconda Python`_ distribution installed.
+    It is appropriate and necessary on :kbd:`graham` where we *do not* have our own `Anaconda Python`_ distribution installed.
     This method *should not* be used on EOAS work stations or other machines where you have `Anaconda Python`_ installed.
 
     .. _"user scheme" for installation: https://packaging.python.org/tutorials/installing-packages/#installing-to-the-user-site
@@ -128,9 +128,9 @@ Install Python Packages
 .. code-block:: bash
 
     $ cd $PROJECT/$USER/MIDOSS
-    $ python3.7 -m pip install --user --editable moad_tools
-    $ python3.7 -m pip install --user --editable NEMO-Cmd
-    $ python3.7 -m pip install --user --editable MOHID-Cmd
+    $ python3 -m pip install --user --editable moad_tools
+    $ python3 -m pip install --user --editable NEMO-Cmd
+    $ python3 -m pip install --user --editable MOHID-Cmd
 
 You can confirm that :kbd:`moad_tools` and :command:`hdf5-to-netcdf4` are correctly installed with the command:
 
@@ -194,7 +194,7 @@ and `MohidWater`_ parts of the `MOHID Framework`_.
 .. _MohidWater: http://wiki.mohid.com/index.php?title=Mohid_Water
 .. _MOHID Framework: http://wiki.mohid.com/index.php?title=Mohid_Framework
 
-Use an `interactive job`_ on :kbd:`cedar` for compilation because it is substantially faster (≥15%).
+Use an `interactive job`_ on :kbd:`graham` for compilation because it is substantially faster (≥15%).
 Be sure to request at least 1024 MB of memory:
 
 .. _interactive job: https://docs.computecanada.ca/wiki/Running_jobs#Interactive_jobs
@@ -244,7 +244,7 @@ i.e. it won't be able to include any products from previous builds.
 Test MIDOSS-MOHID
 =================
 
-The :file:`MIDOSS-MOHID-config/MarathassaConstTS/` directory contains a configuration that you can use to do a test run of your setup on :kbd:`cedar`.
+The :file:`MIDOSS-MOHID-config/MarathassaConstTS/` directory contains a configuration that you can use to do a test run of your setup on :kbd:`graham`.
 It is the constant temperature and salinity version of the 2014 Marathassa spill in English Bay.
 You should be able to run the test with:
 
@@ -302,7 +302,7 @@ Using :command:`hdf5-to-netcdf4`
 
 The :command:`hdf5-to-netcdf4` command-line tool can be used to transform a MOHID :file:`Lagrangian.hdf5` output file into a netCDF4 file.
 Doing so is resource intensive in terms of memory and disk i/o,
-so it has to be done in an `interactive slurm session`_ on :kbd:`cedar`.
+so it has to be done in an `interactive slurm session`_ on :kbd:`graham`.
 
 .. _interactive slurm session: https://docs.computecanada.ca/wiki/Running_jobs#Interactive_jobs
 
@@ -315,7 +315,7 @@ Start an interactive :kbd:`slurm` session with a command like:
 Choose the :kbd:`--time` value to be close to what you expect to need in order to avoid having to wait too long for the session to be allocated to you.
 For guidance,
 transformation of a :file:`Lagrangian.hdf5` from a MOHID run for 7 days of model time on the SalishSeaCast domain takes anywhere from 6m30s to 17m30s,
-depending on how :kbd:`cedar` is operating.
+depending on how :kbd:`graham` is operating.
 
 Once the interactive session starts,
 do the transformation by:

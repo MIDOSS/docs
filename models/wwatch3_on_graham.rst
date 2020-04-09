@@ -9,21 +9,21 @@
 .. _WWatch3-OnCedar:
 
 **************************************
-WAVEWATCH III :sup:`®` on :kbd:`cedar`
+WAVEWATCH III :sup:`®` on :kbd:`graham`
 **************************************
 
 This section describes the steps to set up and run the Strait of Georgia configuration of the `WAVEWATCH III®`_ model
 (wwatch3 hereafter)
-on the ComputeCanada `cedar.computecanada.ca`_ HPC cluster.
+on the ComputeCanada `graham.computecanada.ca`_ HPC cluster.
 
 .. _WAVEWATCH III®: https://polar.ncep.noaa.gov/waves/wavewatch/
-.. _cedar.computecanada.ca: https://docs.computecanada.ca/wiki/Cedar
+.. _graham.computecanada.ca: https://docs.computecanada.ca/wiki/Graham
 
 
-Modules setup
+Modules Setup
 =============
 
-When working on :kbd:`cedar`, the :command:`module load` command must be used to load extra software components.
+When working on :kbd:`graham`, the :command:`module load` command must be used to load extra software components.
 
 You can manually load the modules each time you log in,
 or you can add the lines to your :file:`$HOME/.bashrc` file so that they are automatically loaded upon login.
@@ -44,7 +44,7 @@ The :command:`module load` command required to build wwatch3 is:
 Create a Workspace and Clone the Configuration Repositories
 ===========================================================
 
-:kbd:`cedar` provides `several different types of file storage`_.
+:kbd:`graham` provides `several different types of file storage`_.
 We use project space for our working environments because it is large,
 high performance,
 and backed up.
@@ -53,11 +53,11 @@ also high performance,
 but not backed up,
 so we use that as the space to execute wwatch3 runs in,
 and store their results.
-Files more than 60 days old are automatically purged from scratch space on :kbd:`cedar`.
+Files more than 60 days old are automatically purged from scratch space on :kbd:`graham`.
 
 .. _several different types of file storage: https://docs.computecanada.ca/wiki/Storage_and_file_management
 
-:kbd:`cedar` automatically provides environment variables that are more convenient that remembering full paths to access your project and scratch spaces:
+:kbd:`graham` automatically provides environment variables that are more convenient that remembering full paths to access your project and scratch spaces:
 
 * Your project space is at :file:`$PROJECT/$USER/`
 * Your scratch space is at :file:`$SCRATCH/`
@@ -72,7 +72,7 @@ Create :file:`MIDOSS/` directory trees in your project and scratch spaces:
 
 .. note::
     If the above command fails,
-    it may be because the symbolic link that :envvar:`PROJECT` points to was not created when your :kbd:`cedar` account was set up.
+    it may be because the symbolic link that :envvar:`PROJECT` points to was not created when your :kbd:`graham` account was set up.
     Try:
 
     .. code-block:: bash
@@ -239,7 +239,7 @@ wwatch3 uses netCDF4 wind and current forcing files that are generated from the 
 and the surface current fields that are produced by those runs.
 
 For the moment,
-generation of those forcing files has to be done on :kbd:`salish` and then the files uploaded from there to :kbd:`cedar`.
+generation of those forcing files has to be done on :kbd:`salish` and then the files uploaded from there to :kbd:`graham`.
 This section describes the process for doing that.
 
 We use the :ref:`salishseanowcast:MakeWW3WindFile-Worker` and :ref:`salishseanowcast:MakeWW3CurrentFile-Worker` workers from the SalishSeaCast automation system in :kbd:`--debug` mode to generate the forcing files.
@@ -302,8 +302,8 @@ you can use:
 
     find /data/MIDOSS/forcing/wwatch3/ -type f -execdir chmod g+w {} \;
 
-To upload the files to :kbd:`cedar` you can use:
+To upload the files to :kbd:`graham` you can use:
 
 .. code-block:: bash
 
-    rsync -rltv /data/MIDOSS/forcing/wwatch3/ cedar:/scratch/dlatorne/MIDOSS/forcing/wwatch3/
+    rsync -rltv /data/MIDOSS/forcing/wwatch3/ graham:/scratch/dlatorne/MIDOSS/forcing/wwatch3/
