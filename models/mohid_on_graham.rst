@@ -101,7 +101,7 @@ Clone the following repositories:
 .. _NEMO-Cmd: https://github.com/SalishSeaCast/NEMO-Cmd
 .. _MIDOSS-MOHID-CODE: https://github.com/MIDOSS/MIDOSS-MOHID-CODE
 .. _MIDOSS-MOHID-grid: https://github.com/MIDOSS/MIDOSS-MOHID-grid
-.. _MIDOSS-MOHID-config: https://bitbucket.org/midoss/midoss-mohid-config/
+.. _MIDOSS-MOHID-config: https://github.com/MIDOSS/MIDOSS-MOHID-config
 
 .. code-block:: bash
 
@@ -111,7 +111,7 @@ Clone the following repositories:
     $ git clone git@github.com:SalishSeaCast/NEMO-Cmd.git
     $ git clone git@github.com:MIDOSS/MIDOSS-MOHID-CODE.git
     $ git clone git@github.com:MIDOSS/MIDOSS-MOHID-grid.git
-    $ hg clone ssh://hg@bitbucket.org/midoss/midoss-mohid-config MIDOSS-MOHID-config
+    $ git clone git@github.com:MIDOSS/MIDOSS-MOHID-config.git
 
 
 Install Python Packages
