@@ -73,8 +73,7 @@ or
     $ git clone https://github.com/MIDOSS/docs.git
 
 if you don't have `ssh key authentication`_ set up on GitHub
-(replace :kbd:`you_userid` with you GitHub userid,
-or copy the link from the :guilabel:`Clone` action pop-up on the `repository`_ page).
+(or copy the link from the :guilabel:`Clone or download` button on the `repository`_ page).
 
 .. _ssh key authentication: https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
 
