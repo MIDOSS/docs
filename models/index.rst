@@ -19,5 +19,5 @@ This section is a collection of notes about the computational models used in the
    :maxdepth: 2
    :caption: Contents:
 
-   mohid_on_cedar
-   wwatch3_on_cedar
+   mohid_on_graham
+   wwatch3_on_graham
