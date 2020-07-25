@@ -8,9 +8,9 @@
 
 .. _WWatch3-OnCedar:
 
-**************************************
+***************************************
 WAVEWATCH III :sup:`®` on :kbd:`graham`
-**************************************
+***************************************
 
 This section describes the steps to set up and run the Strait of Georgia configuration of the `WAVEWATCH III®`_ model
 (wwatch3 hereafter)
