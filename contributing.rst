@@ -13,7 +13,7 @@ Contributing to These Docs
 **************************
 
 .. image:: https://img.shields.io/badge/license-CC--BY-lightgrey.svg
-    :target: http://creativecommons.org/licenses/by/4.0/
+    :target: https://creativecommons.org/licenses/by/4.0/
     :alt: Licensed under the Creative Commons Attribution 4.0 International License
 .. image:: https://img.shields.io/badge/version%20control-git-blue.svg?logo=github
     :target: https://github.com/MIDOSS/docs
@@ -75,7 +75,7 @@ or
 if you don't have `ssh key authentication`_ set up on GitHub
 (or copy the link from the :guilabel:`Clone or download` button on the `repository`_ page).
 
-.. _ssh key authentication: https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+.. _ssh key authentication: https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
 
 
 .. _MIDOSS-DocsBuildEnvironment:
@@ -91,9 +91,9 @@ Setting up an isolated docs build environment using `Conda`_ is recommended.
 Assuming that you have the `Anaconda Python Distribution`_ or `Miniconda3`_ installed,
 you can create and activate an environment called :kbd:`midoss-docs` that will have all of the Python packages necessary for building the documentation with the commands:
 
-.. _Conda: https://conda.io/docs/
-.. _Anaconda Python Distribution: https://www.anaconda.com/download/
-.. _Miniconda3: https://conda.io/docs/install/quick.html
+.. _Conda: https://conda.io/en/latest/
+.. _Anaconda Python Distribution: https://www.anaconda.com/products/individual
+.. _Miniconda3: https://docs.conda.io/en/latest/miniconda.html
 
 .. code-block:: bash
 
@@ -139,8 +139,8 @@ Building the documentation is driven by the :file:`docs/Makefile`.
 With your :kbd:`midoss-docs` environment activated,
 use:
 
-.. _reStructuredText: http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
-.. _Sphinx: http://www.sphinx-doc.org/en/master/
+.. _reStructuredText: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+.. _Sphinx: https://www.sphinx-doc.org/en/master/
 
 .. code-block:: bash
 
@@ -264,7 +264,7 @@ License
 =======
 
 .. image:: https://img.shields.io/badge/license-CC--BY-lightgrey.svg
-    :target: http://creativecommons.org/licenses/by/4.0/
+    :target: https://creativecommons.org/licenses/by/4.0/
     :alt: Licensed under the Creative Commons Attribution 4.0 International License
 
 The MEOPAR MIDOSS Project Documentation is copyright 2018-2020 by the `MIDOSS project contributors`_,
@@ -275,4 +275,4 @@ and Dalhousie University.
 
 It is licensed under a `Creative Commons Attribution 4.0 International License`_.
 
-.. _Creative Commons Attribution 4.0 International License: http://creativecommons.org/licenses/by/4.0/
+.. _Creative Commons Attribution 4.0 International License: https://creativecommons.org/licenses/by/4.0/

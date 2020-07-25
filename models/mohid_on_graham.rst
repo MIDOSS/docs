@@ -123,7 +123,7 @@ Install Python Packages
     This method *should not* be used on EOAS work stations or other machines where you have `Anaconda Python`_ installed.
 
     .. _"user scheme" for installation: https://packaging.python.org/tutorials/installing-packages/#installing-to-the-user-site
-    .. _Anaconda Python: https://www.anaconda.com/what-is-anaconda/
+    .. _Anaconda Python: https://www.anaconda.com/products/individual
 
 .. code-block:: bash
 

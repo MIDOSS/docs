@@ -43,6 +43,12 @@ intersphinx_mapping = {
     "salishseanowcast": ("https://salishsea-nowcast.readthedocs.io/en/latest/", None),
 }
 
+# Private GitHub repositories that linkcheck will ignore
+linkcheck_ignore = [
+    'https://github.com/MIDOSS/MIDOSS-MOHID-CODE',
+    'https://github.com/MIDOSS/MIDOSS-MOHID-grid',
+]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
