@@ -21,6 +21,9 @@ Contributing to These Docs
 .. image:: https://readthedocs.org/projects/midoss-docs/badge/?version=latest
     :target: https://midoss-docs.readthedocs.io/en/latest/
     :alt: Documentation Status
+.. image:: https://github.com/MIDOSS/docs/workflows/sphinx-linkcheck/badge.svg
+    :target: https://github.com/MIDOSS/docs/actions?query=workflow%3Asphinx-linkcheck
+    :alt: Sphinx linkcheck
 .. image:: https://img.shields.io/github/issues/MIDOSS/docs?logo=github
     :target: https://github.com/MIDOSS/docs/issues
     :alt: Issue Tracker
@@ -189,6 +192,10 @@ whenever you push changes to GitHub the documentation is automatically re-built 
 Link Checking the Documentation
 ===============================
 
+.. image:: https://github.com/MIDOSS/docs/workflows/sphinx-linkcheck/badge.svg
+    :target: https://github.com/MIDOSS/docs/actions?query=workflow%3Asphinx-linkcheck
+    :alt: Sphinx linkcheck
+
 Use the commmand:
 
 .. code-block:: bash
@@ -198,38 +205,94 @@ Use the commmand:
 to check the documentation for broken links.
 The output looks something like::
 
-  Running Sphinx v1.7.5
-  loading pickled environment... done
+  Running Sphinx v3.2.1
+  making output directory... done
+  loading intersphinx inventory from https://salishsea-nowcast.readthedocs.io/en/latest/objects.inv...
   building [mo]: targets for 0 po files that are out of date
-  building [linkcheck]: targets for 3 source files that are out of date
-  updating environment: 0 added, 1 changed, 0 removed
-  reading sources... [100%] contributing
+  building [linkcheck]: targets for 9 source files that are out of date
+  updating environment: [new config] 9 added, 0 changed, 0 removed
+  reading sources... [100%] python_code/library_code
   looking for now-outdated files... none found
   pickling environment... done
   checking consistency... done
   preparing documents... done
-  writing output... [ 33%] CONTRIBUTORS
-  (line   11) ok        https://www.eoas.ubc.ca/~sallen/
-  (line   13) ok        https://www.dal.ca/faculty/agriculture/engineering/faculty-staff/our-faculty/haibo-niu.html
-  (line   12) ok        https://scarp.ubc.ca/people/stephanie-chang
-  writing output... [ 66%] contributing
-  (line   55) ok        https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-728138079.html
-  (line   27) ok        https://readthedocs.org/projects/midoss-docs/builds/
-  (line   19) ok        https://bitbucket.org/midoss/docs
-  (line   25) ok        https://bitbucket.org/midoss/docs
-  (line   41) ok        https://bitbucket.org/midoss/docs
-  (line   67) ok        https://conda.io/docs/
-  (line   55) ok        https://bitbucket.org/midoss/docs
-  (line   67) ok        https://www.anaconda.com/download/
-  (line   67) ok        https://conda.io/docs/install/quick.html
-  (line  109) ok        http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
-  (line  109) ok        http://www.sphinx-doc.org/en/master/
-  (line  156) ok        https://midoss-docs.readthedocs.io/en/latest/
-  writing output... [100%] index
+  writing output... [ 11%] CONTRIBUTORS
+  (line   20) ok        https://scarp.ubc.ca/people/stephanie-chang
+  (line   21) ok        https://www.dal.ca/faculty/agriculture/engineering/faculty-staff/our-faculty/haibo-niu.html
+  (line   19) ok        https://www.eoas.ubc.ca/~sallen/
+  writing output... [ 22%] TifFiles
+  (line   35) ok        https://www.earthdatascience.org/courses/earth-analytics-python/lidar-raster-data/open-lidar-raster-python/
+  writing output... [ 33%] contributing
+  (line   13) ok        https://creativecommons.org/licenses/by/4.0/
+  (line   13) ok        https://docs.python.org/3.8/
+  (line   13) ok        https://github.com/MIDOSS/docs/issues
+  (line   13) ok        https://midoss-docs.readthedocs.io/en/latest/
+  (line   13) ok        https://github.com/MIDOSS/docs/actions?query=workflow%3Asphinx-linkcheck
+  (line   38) ok        https://github.com/MIDOSS/docs
+  (line   13) ok        https://github.com/MIDOSS/docs
+  (line   44) ok        https://github.com/MIDOSS/docs
+  (line   78) ok        https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+  (line   58) ok        https://github.com/MIDOSS/docs
+  (line   46) ok        https://readthedocs.org/projects/midoss-docs/builds/
+  (line   93) ok        https://conda.io/en/latest/
+  (line  251) ok        https://git-scm.com/
+  (line   93) ok        https://docs.conda.io/en/latest/miniconda.html
+  (line  139) ok        https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+  (line  139) ok        https://www.sphinx-doc.org/en/master/
+  (line   93) ok        https://www.anaconda.com/products/individual
+  (line  277) ok        https://github.com/MIDOSS/docs/blob/master/CONTRIBUTORS.rst
+  (line   13) ok        https://readthedocs.org/projects/midoss-docs/badge/?version=latest
+  (line   13) ok        https://img.shields.io/badge/python-3.6+-blue.svg
+  (line   13) ok        https://img.shields.io/badge/version%20control-git-blue.svg?logo=github
+  (line   13) ok        https://img.shields.io/badge/license-CC--BY-lightgrey.svg
+  (line   13) ok        https://github.com/MIDOSS/docs/workflows/sphinx-linkcheck/badge.svg
+  (line  193) ok        https://github.com/MIDOSS/docs/workflows/sphinx-linkcheck/badge.svg
+  (line   58) ok        https://img.shields.io/badge/version%20control-git-blue.svg?logo=github
+  (line   13) ok        https://img.shields.io/github/issues/MIDOSS/docs?logo=github
+  (line  259) ok        https://img.shields.io/github/issues/MIDOSS/docs?logo=github
+  writing output... [ 44%] index
+  writing output... [ 55%] models/index
+  writing output... [ 66%] models/mohid_on_graham
+  (line   15) ok        https://docs.computecanada.ca/wiki/Graham
+  (line   48) ok        https://docs.computecanada.ca/wiki/Storage_and_file_management
+  (line   87) -ignored- https://github.com/MIDOSS/MIDOSS-MOHID-CODE
+  (line   85) ok        https://github.com/MIDOSS/MOHID-Cmd
+  (line   91) -ignored- https://github.com/MIDOSS/MIDOSS-MOHID-CODE
+  (line   87) ok        https://github.com/MIDOSS/MOHID-Cmd
+  (line   93) -ignored- https://github.com/MIDOSS/MIDOSS-MOHID-grid
+  (line   85) ok        https://github.com/UBC-MOAD/moad_tools
+  (line  121) ok        https://packaging.python.org/tutorials/installing-packages/#installing-to-the-user-site
+  (line   89) ok        https://github.com/SalishSeaCast/NEMO-Cmd
+  (line   15) ok        http://www.mohid.com/
+  (line   95) ok        https://github.com/MIDOSS/MIDOSS-MOHID-config
+  (line   91) ok        http://www.mohid.com/
+  (line  197) ok        https://docs.computecanada.ca/wiki/Running_jobs#Interactive_jobs
+  (line  188) ok        http://wiki.mohid.com/index.php?title=Mohid_Framework
+  (line  188) ok        http://wiki.mohid.com/index.php?title=Mohid_Base_2
+  (line  188) ok        http://wiki.mohid.com/index.php?title=Mohid_Water
+  (line  188) ok        http://wiki.mohid.com/index.php?title=Mohid_Base_1
+  writing output... [ 77%] models/wwatch3_on_graham
+  (line  254) ok        https://salishsea-nowcast.readthedocs.io/en/latest/pkg_development.html#salishseanowcastdevelopmentenvironment
+  (line  245) ok        https://salishsea-nowcast.readthedocs.io/en/latest/workers.html#makeww3currentfile-worker
+  (line  258) ok        https://salishsea-nowcast.readthedocs.io/en/latest/workers.html#makeww3windfile-worker
+  (line   83) ok        https://github.com/SalishSeaCast/SalishSeaWaves
+  (line  245) ok        https://salishsea-nowcast.readthedocs.io/en/latest/workers.html#makeww3windfile-worker
+  (line   15) ok        https://polar.ncep.noaa.gov/waves/wavewatch/
+  writing output... [ 88%] python_code/index
+  writing output... [100%] python_code/library_code
+  (line   92) ok        https://salishsea-meopar-tools.readthedocs.io/en/latest/python_packaging/library_code.html#imports
+  (line   87) ok        https://salishsea-meopar-tools.readthedocs.io/en/latest/python_packaging/library_code.html
+  (line   20) ok        https://www.python.org/dev/peps/pep-0008/
+  (line   94) ok        https://salishsea-meopar-tools.readthedocs.io/en/latest/python_packaging/library_code.html#return-simplenamespace-from-functions
+  (line   93) ok        https://salishsea-meopar-tools.readthedocs.io/en/latest/python_packaging/library_code.html#public-and-private-objects
 
   build succeeded.
 
   Look for any errors in the above output or in _build/linkcheck/output.txt
+
+:command:`make linkcheck` is run monthly via a `scheduled GitHub Actions workflow`_
+
+.. _scheduled GitHub Actions workflow: https://github.com/MIDOSS/docs/actions?query=workflow%3Asphinx-linkcheck
 
 
 .. _MIDOSS-DocsVersionControlRepository:
