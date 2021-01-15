@@ -1,4 +1,4 @@
-.. Copyright 2018-2020 The MIDOSS project contributors,
+.. Copyright 2018-2021 The MIDOSS project contributors,
 .. the University of British Columbia, and Dalhousie University.
 ..
 .. Licensed under a Creative Commons Attribution 4.0 International License
@@ -330,7 +330,7 @@ License
     :target: https://creativecommons.org/licenses/by/4.0/
     :alt: Licensed under the Creative Commons Attribution 4.0 International License
 
-The MEOPAR MIDOSS Project Documentation is copyright 2018-2020 by the `MIDOSS project contributors`_,
+The MEOPAR MIDOSS Project Documentation is Copyright 2018-2021 by the `MIDOSS project contributors`_,
 The University of British Columbia,
 and Dalhousie University.
 
