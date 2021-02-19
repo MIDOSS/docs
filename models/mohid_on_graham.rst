@@ -33,7 +33,7 @@ The :command:`module load` commands needed are:
     module load nco/4.6.6
     module load netcdf-fortran/4.4.4
     module load proj4-fortran/1.0
-    module load python/3
+    module load python/3.8.2
 
 .. warning::
     The :kbd:`nco/4.6.6` module is incompatible with the :kbd:`module load netcdf-fortran-mpi/4.4.4` module that is required to run NEMO.
@@ -82,36 +82,43 @@ Create :file:`MIDOSS/` directory trees in your project and scratch spaces:
 
 Clone the following repositories:
 
+* `Make-MIDOSS-Forcing`_ that provides the :command:`make-hdf5` tool for generating forcing files for `MIDOSS-MOHID-CODE`_ code runs
+* `MIDOSS-MOHID-CODE`_,
+  the MIDOSS project version of `MOHID`_ that includes developed at Dalhousie University
+* `MIDOSS-MOHID-config`_,
+  the collection of MOHID run data (.dat) files and run description YAML files for the various oil spill scenarios
+* `MIDOSS-MOHID-grid`_,
+  the collection of grid-related files
 * `moad_tools`_ that provides the :command:`hdf5-to-netcdf4` tool for by `MOHID-Cmd`_
   (or at the command-line, if necessary)
 * `MOHID-Cmd`_,
   the MIDOSS-MOHID command processor for setting up and managing `MIDOSS-MOHID-CODE`_ code runs
 * `NEMO-Cmd`_,
   the NEMO command processor that MOHID-Cmd uses code from
-* `MIDOSS-MOHID-CODE`_,
-  the MIDOSS project version of `MOHID`_ that includes developed at Dalhousie University
-* `MIDOSS-MOHID-grid`_,
-  the collection of grid-related files
-* `MIDOSS-MOHID-config`_,
-  the collection of MOHID run data (.dat) files and run description YAML files for the various oil spill scenarios
+* `SalishSeaCast/grid`_,
+  the collection of grid-related files for the SalishSeaCast NEMO model
 
 
+.. _Make-MIDOSS-Forcing: https://github.com/MIDOSS/Make-MIDOSS-Forcing
+.. _MIDOSS-MOHID-CODE: https://github.com/MIDOSS/MIDOSS-MOHID-CODE
+.. _MIDOSS-MOHID-config: https://github.com/MIDOSS/MIDOSS-MOHID-config
+.. _MIDOSS-MOHID-grid: https://github.com/MIDOSS/MIDOSS-MOHID-grid
 .. _moad_tools: https://github.com/UBC-MOAD/moad_tools
 .. _MOHID-Cmd: https://github.com/MIDOSS/MOHID-Cmd
 .. _NEMO-Cmd: https://github.com/SalishSeaCast/NEMO-Cmd
-.. _MIDOSS-MOHID-CODE: https://github.com/MIDOSS/MIDOSS-MOHID-CODE
-.. _MIDOSS-MOHID-grid: https://github.com/MIDOSS/MIDOSS-MOHID-grid
-.. _MIDOSS-MOHID-config: https://github.com/MIDOSS/MIDOSS-MOHID-config
+.. _SalishSeaCast/grid: https://github.com/SalishSeaCast/grid
 
 .. code-block:: bash
 
     $ cd $PROJECT/$USER/MIDOSS
+    $ git clone git@github.com:MIDOSS/Make-MIDOSS-Forcing.git
+    $ git clone git@github.com:MIDOSS/MIDOSS-MOHID-CODE.git
+    $ git clone git@github.com:MIDOSS/MIDOSS-MOHID-config.git
+    $ git clone git@github.com:MIDOSS/MIDOSS-MOHID-grid.git
     $ git clone git@github.com:UBC-MOAD/moad_tools.git
     $ git clone git@github.com:MIDOSS/MOHID-Cmd.git
     $ git clone git@github.com:SalishSeaCast/NEMO-Cmd.git
-    $ git clone git@github.com:MIDOSS/MIDOSS-MOHID-CODE.git
-    $ git clone git@github.com:MIDOSS/MIDOSS-MOHID-grid.git
-    $ git clone git@github.com:MIDOSS/MIDOSS-MOHID-config.git
+    $ git clone git@github.com:SalishSeaCast/grid.git SalishSeaCast-grid
 
 
 Install Python Packages
@@ -128,11 +135,37 @@ Install Python Packages
 .. code-block:: bash
 
     $ cd $PROJECT/$USER/MIDOSS
+    $ python3 -m pip install --user --editable Make-MIDOSS-Forcing
     $ python3 -m pip install --user --editable moad_tools
     $ python3 -m pip install --user --editable NEMO-Cmd
     $ python3 -m pip install --user --editable MOHID-Cmd
 
-You can confirm that :kbd:`moad_tools` and :command:`hdf5-to-netcdf4` are correctly installed with the command:
+You can confirm that the :kbd:`Make-MIDOSS-Forcing` package and the :command:`make-hdf5` tool are correctly installed with the command:
+
+.. code-block:: bash
+
+    $ make-hdf5 --help
+
+from which you should see output like::
+
+  Usage: make-hdf5 [OPTIONS] YAML_FILENAME [%Y-%m-%d] [N_DAYS]
+
+    Create HDF5 forcing files for a MIDOSS-MOHID run.
+
+    YAML_FILENAME: File path/name of YAML file to control HDF5 forcing files
+    creation.
+
+    [%Y-%m-%d]: Date on which to start HDF5 forcing files creation.
+
+    N_DAYS: Number of days plus 1 of HDF5 forcing to create in each file.
+    Use 1 to create 2 days of forcing which is what is required for a 1 day
+    MOHID run.
+
+  Options:
+    --version  Show the version and exit.
+    --help     Show this message and exit.
+
+You can confirm that the :kbd:`moad_tools` package and the :command:`hdf5-to-netcdf4` tool are correctly installed with the command:
 
 .. code-block:: bash
 
@@ -154,7 +187,7 @@ from which you should see output like::
                                     [default: warning]
     --help                          Show this message and exit.
 
-You can confirm that :kbd:`MOHID-Cmd` is correctly installed with the command:
+You can confirm that the :kbd:`NEMO-Cmd` and :kbd:`MOHID-Cmd` packaged and the :command:`mohid` command processor are correctly installed with the command:
 
 .. code-block:: bash
 
@@ -178,6 +211,7 @@ from which you should see output like::
     complete       print bash completion command (cliff)
     gather         Gather results files from a MIDOSS-MOHID run.
     help           print detailed help for another command (cliff)
+    monte-carlo    Prepare for and execute a collection of Monte Carlo runs of the MIDOSS-MOHID model.
     prepare        Set up the MIDOSS-MOHID run described in DESC_FILE and print the path of the temporary run directory.
     run            Prepare, execute, and gather results from a MIDOSS-MOHID model run.
 
