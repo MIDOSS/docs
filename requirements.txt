@@ -16,7 +16,7 @@ Jinja2==2.11.3
 MarkupSafe==1.1.1
 packaging==20.1
 pycparser==2.19
-Pygments==2.5.2
+Pygments==2.7.4
 pyOpenSSL==19.1.0
 pyparsing==2.4.6
 PySocks==1.7.1
