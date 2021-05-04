@@ -30,10 +30,17 @@ The :command:`module load` commands needed are:
 
 .. code-block:: bash
 
+    module load StdEnv/2016.4
     module load nco/4.6.6
     module load netcdf-fortran/4.4.4
     module load proj4-fortran/1.0
     module load python/3.8.2
+
+.. warning::
+
+    MIDOSS-MOHID does not build successfully in the :kbd:`StdEnv/2020` that became the default on :kbd:`graham` on 1-Apr-2021.
+    Please ensure that you have done :command:`module load StdEnv/2016.4` prior to building MIDOSS-MOHID.
+
 
 .. warning::
     The :kbd:`nco/4.6.6` module is incompatible with the :kbd:`module load netcdf-fortran-mpi/4.4.4` module that is required to run NEMO.
