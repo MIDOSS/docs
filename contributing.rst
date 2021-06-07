@@ -92,11 +92,10 @@ Docs Build Environment
     :alt: Python Version
 
 Setting up an isolated docs build environment using `Conda`_ is recommended.
-Assuming that you have the `Anaconda Python Distribution`_ or `Miniconda3`_ installed,
+Assuming that you have the `Miniconda3`_ installed,
 you can create and activate an environment called :kbd:`midoss-docs` that will have all of the Python packages necessary for building the documentation with the commands:
 
 .. _Conda: https://conda.io/en/latest/
-.. _Anaconda Python Distribution: https://www.anaconda.com/products/individual
 .. _Miniconda3: https://docs.conda.io/en/latest/miniconda.html
 
 .. code-block:: bash
@@ -240,7 +239,6 @@ The output looks something like::
   (line   93) ok        https://docs.conda.io/en/latest/miniconda.html
   (line  139) ok        https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
   (line  139) ok        https://www.sphinx-doc.org/en/master/
-  (line   93) ok        https://www.anaconda.com/products/individual
   (line  277) ok        https://github.com/MIDOSS/docs/blob/master/CONTRIBUTORS.rst
   (line   13) ok        https://readthedocs.org/projects/midoss-docs/badge/?version=latest
   (line   13) ok        https://img.shields.io/badge/python-3.6+-blue.svg
