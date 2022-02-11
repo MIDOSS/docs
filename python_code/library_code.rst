@@ -1,4 +1,4 @@
-.. Copyright 2018-2021 The MIDOSS project contributors,
+.. Copyright 2018 – present by The MIDOSS project contributors,
 .. the University of British Columbia, and Dalhousie University.
 ..
 .. Licensed under a Creative Commons Attribution 4.0 International License
@@ -36,7 +36,7 @@ Standard Copyright Header Block
 
 Every Python library module show start with our standard copyright notice::
 
-  # Copyright 2018-2021 by the MIDOSS project contributors,
+  # Copyright 2018 – present by the MIDOSS project contributors,
   # and the University of British Columbia, and Dalhousie University.
   #
   # Licensed under the Apache License, Version 2.0 (the "License");
@@ -61,7 +61,7 @@ please talk to Doug.
 
 Sphinx documentation files in code and notebook repos should also start with the same standard copyright notice::
 
-  .. Copyright 2018-2021 by the MIDOSS project contributors,
+  .. Copyright 2018 – present by the MIDOSS project contributors,
   .. and the University of British Columbia, and Dalhousie University.
   ..
   .. Licensed under the Apache License, Version 2.0 (the "License");

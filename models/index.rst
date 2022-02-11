@@ -1,4 +1,4 @@
-.. Copyright 2018 The MIDOSS project contributors,
+.. Copyright 2018 – present by The MIDOSS project contributors,
 .. the University of British Columbia, and Dalhousie University.
 ..
 .. Licensed under a Creative Commons Attribution 4.0 International License
