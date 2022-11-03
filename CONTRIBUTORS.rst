@@ -8,9 +8,9 @@
 
 .. _CONTRIBUTORS:
 
-*********************************
-MIDOSS Project Contributors (In Development) 
-*********************************
+***************************
+MIDOSS Project Contributors
+***************************
 
 The MIDOSS
 (Model of Impact of Dilbit and Oil Spills in the Salish Sea)
@@ -21,13 +21,13 @@ project is lead by:
 * `Haibo Niu`_ in the Department of Engineering at Dalhousie University
 
 .. _Susan Allen: https://www.eoas.ubc.ca/~sallen/
-.. _Stephanie Chang: https://scarp.ubc.ca/people/stephanie-chang
+.. _Stephanie Chang: https://scarp.ubc.ca/directory/stephanie-chang
 .. _Haibo Niu: https://www.dal.ca/faculty/agriculture/engineering/faculty-staff/our-faculty/haibo-niu.html
 
 Software Development Contributions:
 
-* Susan Allen: Lead supervisor, co-developed random_oil_spills.py, co-developed MOHID oil spill fate model, developed post-processing tools.  
-* `Rachael Mueller <https://www.eoas.ubc.ca/people/rachaelmueller>`_ : Post-doctoral fellow in charge of coordinating research groups, supervising students, leading development of the random_oil_spill.py code, managing the selection of oil weathering parameters, developing research, developing methods and code (e.g. random_oil_spills.py), analysing Departement of Ecology data, running MOHID model, analyzing output, developing post-processing tools, documenting information, and presenting research. 
+* `Susan Allen`_: Lead supervisor, co-developed random_oil_spills.py, co-developed MOHID oil spill fate model, developed post-processing tools.  
+* `Rachael Mueller`_ : Post-doctoral fellow in charge of coordinating research groups, supervising students, leading development of the random_oil_spill.py code, managing the selection of oil weathering parameters, developing research, developing methods and code (e.g. random_oil_spills.py), analysing Departement of Ecology data, running MOHID model, analyzing output, developing post-processing tools, documenting information, and presenting research. 
 * Doug Latornell: Developed MOHID modeling platform on Compute Canada machines, managed software implementation, refined and co-developed random_oil_spills.py, provided software development support for the research team, general backbone for keeping all systems a "go". 
 * Ben Moore-Maley: Evaluated surface wind forcing effects on surface currents
 * Ashutosh Bhudia: Developed `make_hdf5.py` code, developed code to re-sample HRDPS and WaveWatch III to SalishSeaCast (MOHID) grid, evaluated surface  conditions (e.g.: winds, currents, and tides), ran MOHID model. 
@@ -38,6 +38,9 @@ Software Development Contributions:
 * Cameron Power: Developed GIS platform and AIS data products used in random_oil_spills.py. Implemented origin and destinations attribution of AIS ship tracks in shapefiles. Researched ship and marine terminal information to inform and develop oil attribution.    
 * Casey Hilliard: Developed code for attributing AIS ship tracks with marine terminal origin and destinations.  
 * Ryah Rondolo: Researched past oil spills and developed database used to assign spill fraction from cargo capacity. 
+
+.. _Rachael Mueller: https://www.eoas.ubc.ca/people/rachaelmueller
+
 
 Contact information:
 
