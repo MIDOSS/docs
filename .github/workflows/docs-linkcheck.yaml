@@ -9,6 +9,8 @@ on:
     - '*'
   schedule:
     - cron: 43 4 3 * *  # 04:43 UTC on the 3rd day of each month
+  # Enable workflow to be triggered from GitHub CLI, browser, or via API
+  workflow_dispatch:
 
 jobs:
   sphinx-linkcheck:
