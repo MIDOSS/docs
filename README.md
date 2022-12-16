@@ -9,6 +9,10 @@ MEOPAR MIDOSS Project Documentation
 [![sphinx-linkcheck](https://github.com/MIDOSS/docs/workflows/sphinx-linkcheck/badge.svg)](https://github.com/MIDOSS/docs/actions?query=workflow%3Asphinx-linkcheck)
 [![Issue Tracker](https://img.shields.io/github/issues/MIDOSS/docs?logo=github)](https://github.com/MIDOSS/docs/issues)
 
+**This repository has been archived because the model runs phase of the MIDOSS project has been completed.**
+Please contact [@SusanEAllen](https://github.com/SusanEAllen)
+or [@DougLatornell](https://github.com/douglatornell) if you see a need for this repository to be re-activated.
+
 This is documentation about the MEOPAR MIDOSS
 (Model of Impact of Dilbit and Oil Spills in the Salish Sea) project.
 
