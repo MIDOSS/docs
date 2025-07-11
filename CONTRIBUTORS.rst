@@ -39,7 +39,7 @@ Software Development Contributions:
 * Casey Hilliard: Developed code for attributing AIS ship tracks with marine terminal origin and destinations.  
 * Ryah Rondolo: Researched past oil spills and developed database used to assign spill fraction from cargo capacity. 
 
-.. _Rachael Mueller: https://www.eoas.ubc.ca/people/rachaelmueller
+.. _Rachael Mueller: https://www.linkedin.com/in/rachael-davida-mueller/
 
 
 Contact information:
@@ -49,7 +49,7 @@ Contact information:
 * Haibo Niu <haibo.niu@dal.ca>
 * Ben Moore-Maley <bmoorema@eoas.ubc.ca>
 * Doug Latornell <dlatornell@eoas.ubc.ca>
-* Rachael Mueller <rmueller@eoas.ubc.ca>
+* Rachael Mueller <RachaelDMueller@gmail.com>
 * Ashutosh Bhudia <ashu.bhudia@gmail.com>
 * Vicky Do <vdo@eoas.ubc.ca>
 
