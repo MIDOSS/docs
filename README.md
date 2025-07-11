@@ -6,7 +6,6 @@ MEOPAR MIDOSS Project Documentation
 [![Licensed under a Creative Commons Attribution 4.0 International License](https://img.shields.io/badge/license-CC--By--4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Git on GitHub](https://img.shields.io/badge/version%20control-git-blue.svg?logo=github)](https://github.com/MIDOSS/docs)
 [![Documentation Status](https://readthedocs.org/projects/midoss-docs/badge/?version=latest)](https://midoss-docs.readthedocs.io/en/latest/)
-[![sphinx-linkcheck](https://github.com/MIDOSS/docs/workflows/sphinx-linkcheck/badge.svg)](https://github.com/MIDOSS/docs/actions?query=workflow%3Asphinx-linkcheck)
 [![Issue Tracker](https://img.shields.io/github/issues/MIDOSS/docs?logo=github)](https://github.com/MIDOSS/docs/issues)
 
 **This repository has been archived because the model runs phase of the MIDOSS project has been completed.**

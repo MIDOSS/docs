@@ -21,9 +21,6 @@ Contributing to These Docs
 .. image:: https://readthedocs.org/projects/midoss-docs/badge/?version=latest
     :target: https://midoss-docs.readthedocs.io/en/latest/
     :alt: Documentation Status
-.. image:: https://github.com/MIDOSS/docs/workflows/sphinx-linkcheck/badge.svg
-    :target: https://github.com/MIDOSS/docs/actions?query=workflow%3Asphinx-linkcheck
-    :alt: Sphinx linkcheck
 .. image:: https://img.shields.io/github/issues/MIDOSS/docs?logo=github
     :target: https://github.com/MIDOSS/docs/issues
     :alt: Issue Tracker
@@ -191,10 +188,6 @@ whenever you push changes to GitHub the documentation is automatically re-built 
 
 Link Checking the Documentation
 ===============================
-
-.. image:: https://github.com/MIDOSS/docs/workflows/sphinx-linkcheck/badge.svg
-    :target: https://github.com/MIDOSS/docs/actions?query=workflow%3Asphinx-linkcheck
-    :alt: Sphinx linkcheck
 
 Use the commmand:
 
